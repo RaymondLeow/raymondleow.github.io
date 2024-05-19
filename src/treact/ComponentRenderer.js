@@ -528,17 +528,20 @@ export const components = {
 
 export default () => {
   const { name } = useParams()
+  console.log("ComponentRenderer params:", name);
   
   try {
       let item = components['innerPages'][name]
       let Component = item.component;
 
     if(Component)
+      console.log("Rendering component:", name);
       return <Component/>
 
     throw new Error("Component Not Found")
   }
   catch (e) {
+    console.log("Rendering default component: About");
     return <About/>
   }
 }
