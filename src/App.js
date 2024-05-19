@@ -33,7 +33,7 @@ const Fullpage = () => (
     render={({ state, fullpageApi }) => {
       return (
         <ReactFullpage.Wrapper>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
               <Switch>
                 {/*<Route path="/components/:type/:subtype/:name">
                   <ComponentRenderer />
