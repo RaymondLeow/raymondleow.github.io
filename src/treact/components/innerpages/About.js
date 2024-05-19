@@ -377,8 +377,9 @@ render() {
   images = Object.keys(images).map((key) => images[key]);
   const navLinks = [
     <NavLinks key={1}>
-      <NavLink href="/portfolio">Portfolio</NavLink>
-      <NavLink href="/about">About</NavLink>
+      <NavLink href="/">Start</NavLink>
+      <NavLink href="/#/portfolio">Portfolio</NavLink>
+      <NavLink href="/#/about">About</NavLink>
       <NavLink href="/#contact">Contact</NavLink>
     </NavLinks>
   ];

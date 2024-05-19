@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -14,14 +14,18 @@ import SecondPage from "./treact/components/hero/SecondPage.js";
 import ThirdPage from "./treact/components/features/ThirdPage.js";
 import FourthPage from "./treact/components/hero/FourthPage.js";
 import ComponentRenderer from "./treact/ComponentRenderer.js";
-import { BrowserRouter as Router, HashRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import StartPage from './treact/StartPage.js';
 
 
 Amplify.configure(awsconfig);
 const anchors = ["hello", "who_am_i", "experience", "contact"];
-const Fullpage = () => (
-  <ReactFullpage
+
+const Fullpage = ({fullpageApi}) => {
+  const navigate = useNavigate();
+
+
+  return (<ReactFullpage
     //fullpage options
     licenseKey = {'YOUR_KEY_HERE'}
     scrollingSpeed = {1000}
@@ -30,17 +34,19 @@ const Fullpage = () => (
     fitToSection={false}
     navigation
     navigationTooltips={anchors}
+    onLeave={(origin, destination) => {
+      const nextAnchor = anchors[destination.index];
+      navigate(`/${nextAnchor}`);
+    }}
 
-    render={({ state, fullpageApi }) => {
+    render={({ state }) => {
       return (
-         < HashRouter basename='/'>
+        <ReactFullpage.Wrapper>
           <Routes>
-            <Route path="/" element={
-              <ReactFullpage.Wrapper><StartPage fullpageApi={fullpageApi}/></ReactFullpage.Wrapper>
-              }></Route>
-            <Route path="/:name" element={<ComponentRenderer/>}></Route>
+            <Route path="/" element={<StartPage fullpageApi={fullpageApi}/>}/>
+            <Route path="/:name" element={<ComponentRenderer/>}/>
           </Routes>
-          </HashRouter>
+        </ReactFullpage.Wrapper>
       )
           {/* <Router basename={process.env.PUBLIC_URL}>
               <Routes> */}
@@ -71,8 +77,8 @@ const Fullpage = () => (
               </Routes>
             </Router> */}
     }}
-  />
-)
+  />)
+}
 
   {/* <HashRouter basename='/'>
   <Routes>
@@ -81,6 +87,12 @@ const Fullpage = () => (
     <Route path="/portfolio" element={<ComponentRenderer/>}></Route>
   </Routes>
   </HashRouter> */}
-  
+  const App = () => (
+    <HashRouter>
+      <Routes>
+        <Route path="/*" element={<Fullpage />} />
+      </Routes>
+    </HashRouter>
+  );
 
-export default Fullpage;
+export default App;
