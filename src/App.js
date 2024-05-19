@@ -41,9 +41,9 @@ const Fullpage = () => (
                 <Route path="/components/:type/:name">
                   <ComponentRenderer />
                 </Route>*/}
-                <Route path="/:name">
-                  <ComponentRenderer />
-                </Route>
+                <Route path="/:name" component={ComponentRenderer}/>
+                  {/*<ComponentRenderer />
+                </Route>*/}
                 <Route path="/">
                   <div className="section">
                     <FirstPage api={fullpageApi}/>
