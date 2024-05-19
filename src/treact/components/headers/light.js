@@ -84,9 +84,9 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   // ];
     const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/personal-page/portfolio">Portfolio</NavLink>
-      <NavLink href="/personal-page/about">About</NavLink>
-      <NavLink href="/personal-page/#contact">Contact</NavLink>
+      <NavLink href="/portfolio">Portfolio</NavLink>
+      <NavLink href="/about">About</NavLink>
+      <NavLink href="/#contact">Contact</NavLink>
     </NavLinks>
   ];
 

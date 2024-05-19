@@ -50,8 +50,8 @@ class FirstPage extends React.Component {
   render() {
     const navLinks = [
       <NavLinks key={1}>
-        <NavLink href="/personal-page/portfolio">Portfolio</NavLink>
-        <NavLink href="/personal-page/about">About</NavLink>
+        <NavLink href="/portfolio">Portfolio</NavLink>
+        <NavLink href="/about">About</NavLink>
         <NavLink onClick={this.moveBottom}>Contact</NavLink>
       </NavLinks>
     ];
