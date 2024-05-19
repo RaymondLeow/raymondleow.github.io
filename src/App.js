@@ -14,7 +14,8 @@ import SecondPage from "./treact/components/hero/SecondPage.js";
 import ThirdPage from "./treact/components/features/ThirdPage.js";
 import FourthPage from "./treact/components/hero/FourthPage.js";
 import ComponentRenderer from "./treact/ComponentRenderer.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter, Routes, Route, Link } from "react-router-dom";
+import StartPage from './treact/StartPage.js';
 
 
 Amplify.configure(awsconfig);
@@ -32,23 +33,31 @@ const Fullpage = () => (
 
     render={({ state, fullpageApi }) => {
       return (
-        <ReactFullpage.Wrapper>
-            <Router basename={process.env.PUBLIC_URL}>
-              <Switch>
+         < HashRouter basename='/'>
+          <Routes>
+            <Route path="/" element={
+              <ReactFullpage.Wrapper><StartPage fullpageApi={fullpageApi}/></ReactFullpage.Wrapper>
+              }></Route>
+            <Route path="/:name" element={<ComponentRenderer/>}></Route>
+          </Routes>
+          </HashRouter>
+      )
+          {/* <Router basename={process.env.PUBLIC_URL}>
+              <Routes> */}
                 {/*<Route path="/components/:type/:subtype/:name">
                   <ComponentRenderer />
                 </Route>
                 <Route path="/components/:type/:name">
                   <ComponentRenderer />
                 </Route>*/}
-                <Route path="/:name" component={ComponentRenderer}/>
+                {/* <Route path="/:name" component={ComponentRenderer}/> */}
                   {/*<ComponentRenderer />
                 </Route>*/}
-                <Route path="/">
+                {/* <Route path="/">
                   <div className="section">
-                    <FirstPage api={fullpageApi}/>
+                    <FirstPage api={fullpageApi}/> */}
                     {/*<InnerPages/>*/}
-                  </div>
+                 {/*  </div>
                   <div className="section">
                     <SecondPage/>
                   </div>
@@ -59,13 +68,19 @@ const Fullpage = () => (
                     <FourthPage />
                   </div>
                </Route>
-              </Switch>
-            </Router>
-        </ReactFullpage.Wrapper>
-      );
+              </Routes>
+            </Router> */}
     }}
   />
-);
+)
 
+  {/* <HashRouter basename='/'>
+  <Routes>
+    <Route exact path="/" element={<StartPage/>}></Route>
+    <Route path="/about" element={<ComponentRenderer/>}></Route>
+    <Route path="/portfolio" element={<ComponentRenderer/>}></Route>
+  </Routes>
+  </HashRouter> */}
+  
 
 export default Fullpage;

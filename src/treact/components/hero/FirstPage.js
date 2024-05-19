@@ -41,17 +41,19 @@ class FirstPage extends React.Component {
   }
   
   moveDown() {
-    this.props.api.moveSectionDown();
+    this.props.fullpageApi.moveSectionDown();
   }
 
   moveBottom() {
-    this.props.api.moveTo(4); 
+    this.props.fullpageApi.moveTo(4); 
   }
+
   render() {
     const navLinks = [
       <NavLinks key={1}>
-        <NavLink href="/portfolio">Portfolio</NavLink>
-        <NavLink href="/about">About</NavLink>
+        <NavLink href="/">Start</NavLink>
+        <NavLink href="/#/portfolio">Portfolio</NavLink>
+        <NavLink href="/#/about">About</NavLink>
         <NavLink onClick={this.moveBottom}>Contact</NavLink>
       </NavLinks>
     ];

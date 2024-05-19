@@ -101,6 +101,7 @@ import MiniCenteredFooter from "./components/footers/MiniCenteredFooter.js";
 
 import Portfolio from "./components/innerpages/Portfolio.js";
 import About from "./components/innerpages/About.js";
+import StartPage from './StartPage.js';
 
 export const components = {
   landingPages: {
@@ -526,23 +527,11 @@ export const components = {
 }
 
 export default () => {
-  const { type, subtype, name } = useParams()
+  const { name } = useParams()
   
   try {
-    // if(type === "blocks" && subtype) {
       let item = components['innerPages'][name]
       let Component = item.component;
-      let url = item.url;
-      let redirectUri = components['innerPages'][name].redirectUri;
-      // return <AnimationRevealPage>
-      //   {redirectUri ? <Route path={url} component={() => {
-      //     // window.location.href = redirectUri;
-      //   }}/> : <Component/>}
-      //   </AnimationRevealPage>
-      return <AnimationRevealPage><Component/></AnimationRevealPage>
-    // }
-    // else
-      // Component= components[type][name].component
 
     if(Component)
       return <Component/>
@@ -550,7 +539,6 @@ export default () => {
     throw new Error("Component Not Found")
   }
   catch (e) {
-    console.log(e)
-    return <div>Error: Component Not Found</div>
+    return <About/>
   }
 }
