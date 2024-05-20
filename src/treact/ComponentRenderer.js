@@ -1,6 +1,6 @@
-import React from 'react';
-import { useParams, Redirect, Route } from 'react-router-dom';
-import AnimationRevealPage from "./helpers/AnimationRevealPage.js"
+import React from "react";
+import { useParams, Redirect, Route } from "react-router-dom";
+import AnimationRevealPage from "./helpers/AnimationRevealPage.js";
 
 import EventLandingPage from "./demos/EventLandingPage.js";
 import HotelTravelLandingPage from "./demos/HotelTravelLandingPage.js";
@@ -17,7 +17,6 @@ import SaaSProductLandingPageImageSrc from "./images/demo/SaaSProductLandingPage
 import RestaurantLandingPageImageSrc from "./images/demo/RestaurantLandingPage.jpeg";
 import ServiceLandingPageImageSrc from "./images/demo/ServiceLandingPage.jpeg";
 import HostingCloudLandingPageImageSrc from "./images/demo/HostingCloudLandingPage.jpeg";
-
 
 import LoginPage from "./pages/Login.js";
 import SignupPage from "./pages/Signup.js";
@@ -66,8 +65,8 @@ import SliderCards from "./components/cards/ThreeColSlider.js";
 import TrendingCards from "./components/cards/TwoTrendingPreviewCardsWithImage.js";
 import PortfolioCards from "./components/cards/PortfolioTwoCardsWithImage.js";
 import TabGridCards from "./components/cards/TabCardGrid.js";
-import ProfileThreeColGridCards from "./components/cards/ProfileThreeColGrid.js"
-import ThreeColContactDetailsCards from "./components/cards/ThreeColContactDetails.js"
+import ProfileThreeColGridCards from "./components/cards/ProfileThreeColGrid.js";
+import ThreeColContactDetailsCards from "./components/cards/ThreeColContactDetails.js";
 
 import ThreeColSimpleWithImageBlog from "./components/blogs/ThreeColSimpleWithImage.js";
 import ThreeColSimpleWithImageAndDashedBorderBlog from "./components/blogs/ThreeColSimpleWithImageAndDashedBorder.js";
@@ -101,7 +100,7 @@ import MiniCenteredFooter from "./components/footers/MiniCenteredFooter.js";
 
 import Portfolio from "./components/innerpages/Portfolio.js";
 import About from "./components/innerpages/About.js";
-import StartPage from './StartPage.js';
+import StartPage from "./StartPage.js";
 
 export const components = {
   landingPages: {
@@ -185,17 +184,18 @@ export const components = {
       url: `/components/innerPages/PrivacyPolicyPage`,
       imageSrc: PrivacyPolicyPageImageSrc,
     },
-    portfolio : {
+    portfolio: {
       name: "Portfolio",
       component: Portfolio,
-      url: "/portfolio"
+      url: "/portfolio",
     },
-    about : {
+    about: {
       name: "About",
       component: About,
       url: "/about",
-      redirectUri: "https://8qqhkj14af.execute-api.eu-central-1.amazonaws.com/dev/items"
-    }
+      redirectUri:
+        "https://8qqhkj14af.execute-api.eu-central-1.amazonaws.com/dev/items",
+    },
     // ,
     // Contact : {
     //   name: "Contact",
@@ -243,7 +243,7 @@ export const components = {
           component: IllustrationAndPrimaryBackgroundHero,
           url: "/components/blocks/Hero/IllustrationAndPrimaryBackground",
         },
-      }
+      },
     },
     Pricing: {
       type: "Pricing Section",
@@ -263,7 +263,7 @@ export const components = {
           component: ThreePlansPricing,
           url: "/components/blocks/Pricing/ThreePlans",
         },
-      }
+      },
     },
     Features: {
       type: "Features Section",
@@ -273,7 +273,7 @@ export const components = {
           component: ThreeColWithSideImageFeatures,
           url: "/components/blocks/Features/ThreeColWithSideImage",
         },
-         TwoColWithButton: {
+        TwoColWithButton: {
           name: "Two Column With Image and Action Button",
           component: TwoColWithButtonFeatures,
           url: "/components/blocks/Features/TwoColWithButton",
@@ -328,7 +328,7 @@ export const components = {
           component: VerticalWithAlternateImageAndTextFeatures,
           url: "/components/blocks/Features/VerticalWithAlternateImageAndText",
         },
-      }
+      },
     },
 
     Cards: {
@@ -364,7 +364,7 @@ export const components = {
           component: TrendingCards,
           url: "/components/blocks/Cards/Trending",
         },
-      }
+      },
     },
 
     Blog: {
@@ -390,7 +390,7 @@ export const components = {
           component: ThreeColSimpleWithImageAndDashedBorderBlog,
           url: "/components/blocks/Blog/ThreeColSimpleWithImageAndDashedBorder",
         },
-      } 
+      },
     },
 
     Testimonial: {
@@ -421,7 +421,7 @@ export const components = {
           component: SimplePrimaryBackgroundTestimonial,
           url: "/components/blocks/Testimonial/SimplePrimaryBackground",
         },
-      }
+      },
     },
 
     FAQS: {
@@ -442,7 +442,7 @@ export const components = {
           component: TwoColumnPrimaryBackgroundFAQS,
           url: "/components/blocks/FAQS/TwoColumnPrimaryBackground",
         },
-      }
+      },
     },
 
     Form: {
@@ -468,7 +468,7 @@ export const components = {
           component: TwoColContactUsFullForm,
           url: "/components/blocks/Form/TwoColContactUsFull",
         },
-      }
+      },
     },
 
     CTA: {
@@ -489,7 +489,7 @@ export const components = {
           component: DownloadAppCTA,
           url: "/components/blocks/CTA/DownloadApp",
         },
-      }
+      },
     },
 
     Footer: {
@@ -520,28 +520,25 @@ export const components = {
           component: MiniCenteredFooter,
           url: "/components/blocks/Footer/MiniCentered",
         },
-      }
-    }
-
-  }
-}
+      },
+    },
+  },
+};
 
 export default () => {
-  const { name } = useParams()
+  const name = useParams();
   console.log("ComponentRenderer params:", name);
-  
+
   try {
-      let item = components['innerPages'][name]
-      let Component = item.component;
+    let item = components["innerPages"][name];
+    let Component = item.component;
 
-    if(Component)
-      console.log("Rendering component:", name);
-      return <Component/>
+    if (Component) console.log("Rendering component:", name);
+    return <Component />;
 
-    throw new Error("Component Not Found")
-  }
-  catch (e) {
+    throw new Error("Component Not Found");
+  } catch (e) {
     console.log("Rendering default component: About");
-    return <About/>
+    return <About />;
   }
-}
+};
