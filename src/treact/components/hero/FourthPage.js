@@ -1,12 +1,10 @@
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
 import { NavLink } from "../headers/light.js";
 
-import Header from "../headers/light.js";
 import { SectionDescription } from "../misc/Typography.js";
-import BackgroundImage  from "../../images/osaka-background.jpg"
+import BackgroundImage from "../../images/osaka-background.jpg";
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
   background-image: url(${BackgroundImage})
@@ -28,13 +26,13 @@ const Description = tw(SectionDescription)`w-full text-center text-gray-300`;
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 font-bold shadow transition duration-300 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900 focus:outline-none focus:shadow-outline`;
 
 class FourthPage extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.sendEmail = this.sendEmail.bind(this);
     this.state = {
       email: "leow.ray@gmail.com",
-      subject: "Hi Raymond!"
-    }
+      subject: "Hi Raymond!",
+    };
   }
 
   sendEmail() {
@@ -48,25 +46,23 @@ class FourthPage extends React.Component {
     return (
       <Container>
         <OpacityOverlay />
-        <div style={{backgroundImage:`url(${BackgroundImage})`}} ></div>
+        <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
         <HeroContainer>
           <Content>
-          {description && <Description>{description}</Description>}
-            <Heading>
-            {this.state.email}
-            </Heading>
-            <PrimaryAction onClick={this.sendEmail}>Get in touch!</PrimaryAction>
+            {description && <Description>{description}</Description>}
+            <Heading>{this.state.email}</Heading>
+            <PrimaryAction onClick={this.sendEmail}>
+              Get in touch!
+            </PrimaryAction>
           </Content>
           <Footer>
-          <Description>
-          <NavLink href={LILink}>
-            {LIDesc}
-          </NavLink>
-          </Description>
+            <Description>
+              <NavLink href={LILink}>{LIDesc}</NavLink>
+            </Description>
           </Footer>
         </HeroContainer>
       </Container>
     );
-  };
+  }
 }
 export default FourthPage;

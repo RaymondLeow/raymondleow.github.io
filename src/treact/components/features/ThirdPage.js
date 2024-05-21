@@ -3,14 +3,14 @@ import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
 import { css } from "styled-components/macro";
-import { SectionHeading, Subheading as SubheadingBase } from "../misc/Headings.js";
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from "../misc/Headings.js";
 import { SectionDescription } from "../misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
 
 import defaultCardImage from "../../images/shield-icon.svg";
-
-
-import BBIcon from "../../images/briteback.png";
 import LIUIcon from "../../images/liu-icon.png";
 import SBIcon from "../../images/sb-icon.jpg";
 import InforIcon from "../../images/infor-icon.png";
@@ -23,7 +23,9 @@ const ThreeColumnContainer = styled.div`
 const Subheading = tw(SubheadingBase)`mb-4 text-gray-100`;
 const Heading = tw(SectionHeading)`w-full sm:text-4xl md:text-5xl xl:text-6xl`;
 const Description = tw(SectionDescription)`w-full text-center text-gray-300`;
-const PrimaryButton = tw(PrimaryButtonBase)`mt-4 inline-block w-56 tracking-wide text-center py-5 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900`;
+const PrimaryButton = tw(
+  PrimaryButtonBase
+)`mt-4 inline-block w-56 tracking-wide text-center py-5 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900`;
 const VerticalSpacer = tw.div`md:mt-10 w-full`;
 const SmallVerticalSpacer = tw.div`mt-1 w-full`;
 
@@ -64,36 +66,28 @@ export default ({
   description = "Want to know more?",
   buttonRounded = true,
   primaryButtonUrl = "/portfolio",
-  primaryButtonText = "Check my portfolio!"
+  primaryButtonText = "Check my portfolio!",
 }) => {
-  /*
-   * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
-   *  1) imageSrc - the image shown at the top of the card
-   *  2) title - the title of the card
-   *  3) description - the description of the card
-   *  If a key for a particular card is not provided, a default value is used
-   */
   const buttonRoundedCss = buttonRounded && tw`rounded-full`;
   const defaultCards = [
-
-    { imageSrc: InforIcon, 
+    {
+      imageSrc: InforIcon,
       title: "Front-end Web Development",
-      description: "Building value-based components for demo solutions at Infor" 
+      description:
+        "Building value-based components for demo solutions at Infor",
     },
     {
       imageSrc: SBIcon,
       title: "Full-stack Development",
-      description: "Web development of Schemabanken, a scheduling tool for the public sector"
+      description:
+        "Web development of Schemabanken, a scheduling tool for the public sector",
     },
-    { imageSrc: LIUIcon, 
+    {
+      imageSrc: LIUIcon,
       title: "Lab Assistance",
-      description: "Grading, helping and creating Python labs for the students at Linköping University" 
-    }
-    // ,
-    // { 
-    //   imageSrc: ReliableIconImage, title: "Reliable" },
-    // { imageSrc: FastIconImage, title: "Fast" },
-    // { imageSrc: SimpleIconImage, title: "Easy" }
+      description:
+        "Grading, helping and creating Python labs for the students at Linköping University",
+    },
   ];
 
   if (!cards) cards = defaultCards;
@@ -108,27 +102,26 @@ export default ({
           <Column key={i}>
             <Card>
               <span className="cardContent">
-              <span className="imageContainer">
-                <img src={card.imageSrc || defaultCardImage} alt="" />
-              </span>
-              <span className="textContainer">
-                <span className="title">{card.title || "Fully Secure"}</span>
-                <p className="description">
-                  {card.description || "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
-                </p>
-              </span>
+                <span className="imageContainer">
+                  <img src={card.imageSrc || defaultCardImage} alt="" />
+                </span>
+                <span className="textContainer">
+                  <span className="title">{card.title || "Fully Secure"}</span>
+                  <p className="description">
+                    {card.description ||
+                      "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
+                  </p>
+                </span>
               </span>
             </Card>
           </Column>
         ))}
-      <VerticalSpacer />
-      {description && <Description>{description}</Description>}
-      <SmallVerticalSpacer />
-      <PrimaryButton css={buttonRoundedCss}>
-        <a href={primaryButtonUrl}>
-          {primaryButtonText}
-        </a>
-      </PrimaryButton>
+        <VerticalSpacer />
+        {description && <Description>{description}</Description>}
+        <SmallVerticalSpacer />
+        <PrimaryButton css={buttonRoundedCss}>
+          <a href={primaryButtonUrl}>{primaryButtonText}</a>
+        </PrimaryButton>
       </ThreeColumnContainer>
     </Container>
   );
