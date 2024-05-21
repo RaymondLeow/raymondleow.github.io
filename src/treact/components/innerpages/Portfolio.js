@@ -26,6 +26,8 @@ const PrimaryButton = tw(
 const FooterDescription = tw.div`mt-2 font-normal leading-snug`;
 const FooterDisclaimer = tw.div`mt-2 text-sm font-normal text-gray-600 leading-snug`;
 const VerticalSpacer = tw.div`md:mt-10 w-full`;
+const FooterContainer = tw.div`flex items-center justify-center h-full`;
+const FootTextContainer = tw.div`text-center`;
 
 const SvgDotPattern1 = tw(
   SvgDotPatternIcon
@@ -116,7 +118,7 @@ export default () => {
   ];
   const button = {
     description: "Want the portfolio in compact form?",
-    text: "Get my CV!",
+    text: "Get my resume!",
     disclaimer: "Swedish (Oct. 2020)",
   };
   const navLinks = [
@@ -145,16 +147,20 @@ export default () => {
             </VerticalTimeline>
           </Content>
           <VerticalSpacer />
-          <FooterDescription>{button.description}</FooterDescription>
-          <a href={CV} without rel="noopener noreferrer" target="_blank">
-            <PrimaryButton>{button.text}</PrimaryButton>
-          </a>
-          <FooterDisclaimer>{button.disclaimer}</FooterDisclaimer>
+          <FooterContainer>
+            <FootTextContainer>
+              <FooterDescription>{button.description}</FooterDescription>
+              <a href={CV} without rel="noopener noreferrer" target="_blank">
+                <PrimaryButton>{button.text}</PrimaryButton>
+              </a>
+              <FooterDisclaimer>{button.disclaimer}</FooterDisclaimer>
+            </FootTextContainer>
+          </FooterContainer>
         </SingleColumn>
-        <SvgDotPattern1 />
+        {/* <SvgDotPattern1 />
         <SvgDotPattern2 />
         <SvgDotPattern3 />
-        <SvgDotPattern4 />
+        <SvgDotPattern4 /> */}
       </div>
     </Container>
   );

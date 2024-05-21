@@ -4,19 +4,16 @@ import tw from "twin.macro";
 import HeaderBase, { NavLinks, NavLink } from "../headers/light.js";
 import AnimationRevealPage from "../../helpers/AnimationRevealPage.js";
 import { SectionHeading } from "../misc/Headings.js";
-import { ReactComponent as ArrowDownIcon } from "../../images/outline/arrow-circle-down-white.svg";
 import BackgroundImage from "../../images/winter-background.jpg";
 
 const OpacityOverlay = tw.div`absolute inset-0 bg-black opacity-75`;
-const VerticalSpacer = tw.div`mt-1 w-full`;
 const Header = tw(HeaderBase)`z-50 max-w-none top-0 text-gray-100 pt-3`;
 const Row = tw.div`h-full relative`;
 const Heading = tw(
   SectionHeading
 )`text-left bottom-0 absolute text-gray-100 leading-minus tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`;
 const Introduction = tw.div`font-light text-gray-100 text-right sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-8 py-8`;
-const NavButton = tw.div` px-8
-  my-12 py-4 md:text-base lg:text-lg xl:text-xl text-gray-100 hover:bg-primary-900 font-thin tracking-wide cursor-pointer rounded`;
+const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 font-bold shadow transition duration-300 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900 focus:outline-none focus:shadow-outline`;
 
 const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col`;
 const Content = tw.div`px-4 flex flex-1 flex-col justify-center items-center`;
@@ -68,11 +65,9 @@ class FirstPage extends React.Component {
               <HeroContainer>
                 <Content>
                   <Introduction>{description}</Introduction>
-                  <NavButton onClick={this.moveDown}>
-                    {scroll}
-                    <VerticalSpacer />
-                    <ArrowDownIcon tw="transition duration-300 relative left-icon transform w-12 h-12" />
-                  </NavButton>
+                  <PrimaryAction onClick={this.moveDown}>
+                    Let's start!
+                  </PrimaryAction>
                 </Content>
               </HeroContainer>
             </AnimationRevealPage>

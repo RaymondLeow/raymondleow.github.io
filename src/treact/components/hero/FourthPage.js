@@ -41,7 +41,7 @@ class FourthPage extends React.Component {
 
   render() {
     const description = "Interested? Find me at:";
-    const LILink = "https://www.linkedin.com/in/raymond-leow-276454116/";
+    const LILink = "https://www.linkedin.com/in/raymond-leow/";
     const LIDesc = "Connect with LinkedIn!";
     return (
       <Container>
