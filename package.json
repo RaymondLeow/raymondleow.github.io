@@ -1,47 +1,49 @@
 {
-  "homepage": "https://raymondleow.github.io",
-  "name": "personal-page",
+  "name": "treact",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aws-amplify/ui-react": "^0.2.21",
-    "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
     "@fullpage/react-fullpage": "^0.1.17",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "aws-amplify": "^3.3.1",
-    "feather-icons": "^4.26.0",
-    "framer-motion": "^1.10.2",
-    "querystring": "^0.2.0",
-    "react": "^16.13.1",
+    "@jdion/tilt-react": "^1.0.0",
+    "@testing-library/jest-dom": "^5.16.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "feather-icons": "^4.29.0",
+    "framer-motion": "^7.3.2",
+    "react": "^18.0.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
-    "react-dom": "^16.13.1",
-    "react-modal": "^3.11.2",
-    "react-rnd": "^10.1.9",
-    "react-router-dom": "^6.23.1",
-    "react-scripts": "^3.4.4",
-    "react-slick": "^0.25.2",
-    "react-tilt": "^0.1.4",
+    "react-dom": "^18.0.0",
+    "react-github-btn": "^1.4.0",
+    "react-modal": "^3.15.0",
+    "react-rnd": "^10.3.7",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "react-vertical-timeline-component": "^3.2.0",
-    "request": "^2.88.2",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.2.0",
-    "tailwindcss": "^1.8.10",
-    "twin.macro": "^1.0.0-alpha.7",
-    "use-in-view": "^1.0.15"
+    "styled-components": "^5.3.5",
+    "tailwindcss": "^3.0.0",
+    "twin.macro": "^3.0.0-rc.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "yarn build && netlify deploy --prod --dir=build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": [
+          "src/**/*.js"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -54,8 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
   }
 }
