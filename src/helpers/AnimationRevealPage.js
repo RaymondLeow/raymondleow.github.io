@@ -17,7 +17,10 @@ function AnimationReveal({ disabled, children }) {
   const directions = ["left", "right"];
   const childrenWithAnimation = children.map((child, i) => {
     return (
-      <AnimatedSlideInComponent key={i} direction={directions[i % directions.length]}>
+      <AnimatedSlideInComponent
+        key={i}
+        direction={directions[i % directions.length]}
+      >
         {child}
       </AnimatedSlideInComponent>
     );
@@ -25,33 +28,44 @@ function AnimationReveal({ disabled, children }) {
   return <>{childrenWithAnimation}</>;
 }
 
-function AnimatedSlideInComponent({ direction = "left", offset = 30, children }) {
-  const [ref, inView] = useInView({ margin: `-${offset}px 0px 0px 0px`});
+function AnimatedSlideInComponent({
+  direction = "left",
+  offset = 30,
+  children,
+}) {
+  const [ref] = useInView(30);
 
   const x = { target: "0%" };
 
   if (direction === "left") x.initial = "-150%";
   else x.initial = "150%";
 
+  /*initial={{ x: x.initial, height: '50%' }}
+      animate={{ 
+        x: inView && x.target,
+        transitionEnd:{
+          x: inView && 0
+        }
+      }}
+      transition={{ type: "spring", damping: 100 }}*/
   return (
-    <div ref={ref}>
-      <motion.section
-        initial={{ x: x.initial }}
-        animate={{ 
-          x: inView && x.target,
-          transitionEnd:{
-            x: inView && 0
-          }
-        }}
-        transition={{ type: "spring", damping: 19 }}
-      >
-        {children}
-      </motion.section>
-    </div>
+    <motion.section
+      width={"100%"}
+      initial={{ y: 80 * 1.2, height: "45%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        ease: "easeOut",
+        duration: 0.5,
+      }}
+      overflow={"hidden"}
+      ref={ref}
+    >
+      {children}
+    </motion.section>
   );
 }
 
-export default props => (
+export default (props) => (
   <StyledDiv className="App">
     <AnimationReveal {...props} />
   </StyledDiv>

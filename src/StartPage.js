@@ -2,7 +2,7 @@ import FirstPage from "./components/hero/FirstPage";
 import SecondPage from "./components/hero/SecondPage";
 import ThirdPage from "./components/features/ThirdPage";
 import FourthPage from "./components/hero/FourthPage";
-import React from "react";
+import React, { useEffect } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 const StartPage = () => {
@@ -10,15 +10,14 @@ const StartPage = () => {
 
   return (
     <ReactFullpage
-      //fullpage options
       licenseKey={"YOUR_KEY_HERE"}
-      scrollingSpeed={1000}
       anchors={anchors}
+      scrollingSpeed={1000}
       autoScrolling={false}
       fitToSection={false}
       navigation
       navigationTooltips={anchors}
-      render={({ state, fullpageApi }) => {
+      render={({ fullpageApi }) => {
         return (
           <>
             <div className="section">
