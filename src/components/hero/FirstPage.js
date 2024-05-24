@@ -1,13 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import HeaderBase, { NavLinks, NavLink } from "../headers/light.js";
+import Header, {
+  NavLinks,
+  NavLink,
+  LogoLink,
+  NavToggle,
+  DesktopNavLinks,
+} from "../headers/light.js";
 import AnimationRevealPage from "../../helpers/AnimationRevealPage.js";
 import { SectionHeading } from "../misc/Headings.js";
 import BackgroundImage from "../../images/winter-background.jpg";
 
 const OpacityOverlay = tw.div`absolute inset-0 bg-black opacity-75`;
-const Header = tw(HeaderBase)`z-50 max-w-none top-0 text-gray-100 pt-3`;
+const StyledHeader = styled(Header)`
+  ${tw`pt-8 max-w-none w-full`}
+  ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
+    ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
+  }
+  ${NavToggle}.closed {
+    ${tw`text-gray-100 hover:text-primary-500`}
+  }
+`;
 const Row = tw.div`h-full relative`;
 const Heading = tw(
   SectionHeading
@@ -50,30 +64,22 @@ class FirstPage extends React.Component {
       "Hi! This site is still under development. Please hold on! :)";
     const scroll = "SCROLL";
     return (
-      <>
-        <Row>
-          <Container>
-            <OpacityOverlay />
-            <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
-            <AnimationRevealPage>
-              <HeroContainer>
-                <Header links={navLinks} />
-                <Content>
-                  <Heading>{heading}</Heading>
-                </Content>
-              </HeroContainer>
-              <HeroContainer>
-                <Content>
-                  <Introduction>{description}</Introduction>
-                  <PrimaryAction onClick={this.moveDown}>
-                    Let's start!
-                  </PrimaryAction>
-                </Content>
-              </HeroContainer>
-            </AnimationRevealPage>
-          </Container>
-        </Row>
-      </>
+      <Container>
+        <OpacityOverlay />
+        <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
+        <AnimationRevealPage>
+          <HeroContainer>
+            <StyledHeader links={navLinks} />
+            <Content>
+              <Heading>{heading}</Heading>
+              <Introduction>{description}</Introduction>
+              <PrimaryAction onClick={this.moveDown}>
+                Let's start!
+              </PrimaryAction>
+            </Content>
+          </HeroContainer>
+        </AnimationRevealPage>
+      </Container>
     );
   }
 }

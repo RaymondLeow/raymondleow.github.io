@@ -11,7 +11,6 @@ const StartPage = () => {
   return (
     <ReactFullpage
       licenseKey={"YOUR_KEY_HERE"}
-      anchors={anchors}
       scrollingSpeed={1000}
       autoScrolling={false}
       fitToSection={false}

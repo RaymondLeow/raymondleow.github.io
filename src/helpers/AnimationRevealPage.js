@@ -51,7 +51,7 @@ function AnimatedSlideInComponent({
   return (
     <motion.section
       width={"100%"}
-      initial={{ y: 80 * 1.2, height: "45%", opacity: 0 }}
+      initial={{ y: 80 * 1.2, height: "45vh", opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
         ease: "easeOut",
