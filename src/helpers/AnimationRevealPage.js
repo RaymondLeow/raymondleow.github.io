@@ -6,7 +6,7 @@ import tw from "twin.macro";
 import { motion } from "framer-motion";
 import useInView from "helpers/useInView";
 
-const StyledDiv = tw.div`font-display min-h-screen text-secondary-500 p-8 overflow-hidden`;
+const StyledDiv = tw.div`font-display h-full text-secondary-500 p-8 overflow-hidden`;
 function AnimationReveal({ disabled, children }) {
   if (disabled) {
     return <>{children}</>;
@@ -51,8 +51,8 @@ function AnimatedSlideInComponent({
   return (
     <motion.section
       width={"100%"}
-      initial={{ y: 80 * 1.2, height: "45vh", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: "90%", height: "60%", opacity: 0 }}
+      animate={{ y: "50%", opacity: 1 }}
       transition={{
         ease: "easeOut",
         duration: 0.5,

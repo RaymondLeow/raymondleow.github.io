@@ -22,10 +22,9 @@ const StyledHeader = styled(Header)`
     ${tw`text-gray-100 hover:text-primary-500`}
   }
 `;
-const Row = tw.div`h-full relative`;
 const Heading = tw(
   SectionHeading
-)`text-left bottom-0 absolute text-gray-100 leading-3 tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`;
+)`mb-8 text-left text-gray-100 leading-3 tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`;
 const Introduction = tw.div`font-light text-gray-100 text-right sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-8 py-8`;
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 font-bold shadow-md transition-all duration-300 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900 focus:outline-none focus:shadow-outline`;
 
@@ -67,9 +66,9 @@ class FirstPage extends React.Component {
       <Container>
         <OpacityOverlay />
         <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
-        <AnimationRevealPage>
-          <HeroContainer>
-            <StyledHeader links={navLinks} />
+        <HeroContainer>
+          <StyledHeader links={navLinks} />
+          <AnimationRevealPage>
             <Content>
               <Heading>{heading}</Heading>
               <Introduction>{description}</Introduction>
@@ -77,8 +76,8 @@ class FirstPage extends React.Component {
                 Let's start!
               </PrimaryAction>
             </Content>
-          </HeroContainer>
-        </AnimationRevealPage>
+          </AnimationRevealPage>
+        </HeroContainer>
       </Container>
     );
   }
