@@ -41,6 +41,12 @@
   }
 }
 
-.vertical-timeline-element--left .vertical-timeline-element-content .vertical-timeline-element-date {
+.vertical-timeline-element--left
+  .vertical-timeline-element-content
+  .vertical-timeline-element-date {
   text-align: left;
+}
+
+.section {
+  overflow-x: hidden;
 }

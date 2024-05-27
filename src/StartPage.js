@@ -2,12 +2,13 @@ import FirstPage from "./components/hero/FirstPage";
 import SecondPage from "./components/hero/SecondPage";
 import ThirdPage from "./components/features/ThirdPage";
 import FourthPage from "./components/hero/FourthPage";
-import React, { useEffect } from "react";
+import React from "react";
+import tw from "twin.macro";
 import ReactFullpage from "@fullpage/react-fullpage";
 
 const StartPage = () => {
   const anchors = ["hello", "who_am_i", "experience", "contact"];
-
+  const Section = tw.div`overflow-x-hidden`;
   return (
     <ReactFullpage
       licenseKey={"YOUR_KEY_HERE"}
@@ -20,16 +21,24 @@ const StartPage = () => {
         return (
           <>
             <div className="section">
-              <FirstPage fullpageApi={fullpageApi} />
+              <Section>
+                <FirstPage fullpageApi={fullpageApi} />
+              </Section>
             </div>
             <div className="section">
-              <SecondPage />
+              <Section>
+                <SecondPage />
+              </Section>
             </div>
             <div className="section">
-              <ThirdPage />
+              <Section>
+                <ThirdPage />
+              </Section>
             </div>
             <div className="section">
-              <FourthPage />
+              <Section>
+                <FourthPage />
+              </Section>
             </div>
           </>
         );
