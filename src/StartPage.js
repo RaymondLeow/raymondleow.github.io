@@ -11,6 +11,7 @@ const StartPage = () => {
   const Section = tw.div`overflow-x-hidden`;
   return (
     <ReactFullpage
+      anchors={anchors}
       licenseKey={"YOUR_KEY_HERE"}
       scrollingSpeed={1000}
       autoScrolling={false}
