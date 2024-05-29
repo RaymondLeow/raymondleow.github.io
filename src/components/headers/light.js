@@ -91,7 +91,7 @@ export default ({
   const defaultLogoLink = (
     <LogoLink href="/">
       <img src={logo} alt="logo" />
-      Treact
+      Raymond Leow
     </LogoLink>
   );
 
