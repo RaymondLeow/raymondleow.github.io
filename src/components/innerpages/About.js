@@ -577,13 +577,6 @@ class About extends React.Component {
     const imageDecoratorBlob = true;
     let images = this.state.images;
     images = Object.keys(images).map((key) => images[key]);
-    const navLinks = [
-      <NavLinks key={1}>
-        <NavLink href="/#/portfolio">Portfolio</NavLink>
-        <NavLink href="/#/about">About</NavLink>
-        <NavLink href="/#contact">Contact</NavLink>
-      </NavLinks>,
-    ];
     return (
       <ReactFullpage
         navigation
@@ -593,7 +586,7 @@ class About extends React.Component {
               <Container>
                 <div className="section">
                   <InfoContainer>
-                    <Header ids={navLinks} />
+                    <Header />
                     <ContentWithVerticalPadding>
                       <Row>
                         <ImageColumn>

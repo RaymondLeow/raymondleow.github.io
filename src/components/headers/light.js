@@ -81,7 +81,6 @@ export default ({
       <NavLink href="/">Start</NavLink>
       <NavLink href="/#/portfolio">Portfolio</NavLink>
       <NavLink href="/#/about">About</NavLink>
-      <NavLink href="/#contact">Contact</NavLink>
     </NavLinks>,
   ];
 

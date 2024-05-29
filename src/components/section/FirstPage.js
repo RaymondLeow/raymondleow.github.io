@@ -50,24 +50,15 @@ class FirstPage extends React.Component {
   }
 
   render() {
-    const navLinks = [
-      <NavLinks key={1}>
-        <NavLink href="/">Start</NavLink>
-        <NavLink href="/#/portfolio">Portfolio</NavLink>
-        <NavLink href="/#/about">About</NavLink>
-        <NavLink onClick={this.moveBottom}>Contact</NavLink>
-      </NavLinks>,
-    ];
     const heading = "Raymond Leow";
     const description =
       "Hi! This site is still under development. Please hold on! :)";
-    const scroll = "SCROLL";
     return (
       <Container>
         <OpacityOverlay />
         <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
         <HeroContainer>
-          <StyledHeader links={navLinks} />
+          <StyledHeader />
           <AnimationRevealPage>
             <Content>
               <Heading>{heading}</Heading>

@@ -6,7 +6,7 @@ import HeaderBase, { NavLinks, NavLink } from "../headers/light.js";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
-import Tilter from "../hero/Tilter.js";
+import Tilter from "../features/Tilter.js";
 
 import CV from "../../documents/CV.pdf";
 
@@ -121,17 +121,10 @@ export default () => {
     text: "Get my resume!",
     disclaimer: "Swedish (Oct. 2020)",
   };
-  const navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="/#/portfolio">Portfolio</NavLink>
-      <NavLink href="/#/about">About</NavLink>
-      <NavLink href="/#contact">Contact</NavLink>
-    </NavLinks>,
-  ];
   return (
     <Container>
       <div className="section">
-        <Header links={navLinks} />
+        <Header />
         <SingleColumn>
           <HeadingInfoContainer>
             <Heading>Portfolio</Heading>
@@ -161,10 +154,6 @@ export default () => {
             </FootTextContainer>
           </FooterContainer>
         </SingleColumn>
-        {/* <SvgDotPattern1 />
-        <SvgDotPattern2 />
-        <SvgDotPattern3 />
-        <SvgDotPattern4 /> */}
       </div>
     </Container>
   );

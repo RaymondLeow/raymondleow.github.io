@@ -1,18 +1,16 @@
-import FirstPage from "./components/hero/FirstPage";
-import SecondPage from "./components/hero/SecondPage";
-import ThirdPage from "./components/features/ThirdPage";
-import FourthPage from "./components/hero/FourthPage";
+import FirstPage from "./components/section/FirstPage";
+import SecondPage from "./components/section/SecondPage";
+import ThirdPage from "./components/section/ThirdPage";
+import FourthPage from "./components/section/FourthPage";
 import React from "react";
 import tw from "twin.macro";
 import ReactFullpage from "@fullpage/react-fullpage";
+const Section = tw.div`overflow-x-hidden`;
 
 const StartPage = () => {
   const anchors = ["hello", "who_am_i", "experience", "contact"];
-  const Section = tw.div`overflow-x-hidden`;
   return (
     <ReactFullpage
-      anchors={anchors}
-      licenseKey={"YOUR_KEY_HERE"}
       scrollingSpeed={1000}
       autoScrolling={false}
       fitToSection={false}
