@@ -1,8 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
-import { ReactComponent as SvgDotPatternIcon } from "../../images/dot-pattern.svg";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
-import HeaderBase, { NavLinks, NavLink } from "../headers/light.js";
+import HeaderBase from "../headers/light.js";
 import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
@@ -28,19 +27,6 @@ const FooterDisclaimer = tw.div`mt-2 text-sm font-normal text-gray-600 leading-s
 const VerticalSpacer = tw.div`md:mt-10 w-full`;
 const FooterContainer = tw.div`flex items-center justify-center h-full`;
 const FootTextContainer = tw.div`text-center`;
-
-const SvgDotPattern1 = tw(
-  SvgDotPatternIcon
-)`absolute top-0 left-0 transform -translate-x-20 rotate-90 translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-const SvgDotPattern2 = tw(
-  SvgDotPatternIcon
-)`absolute top-0 right-0 transform translate-x-20 rotate-45 translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-const SvgDotPattern3 = tw(
-  SvgDotPatternIcon
-)`absolute bottom-0 left-0 transform -translate-x-20 rotate-45 -translate-y-8 -z-10 opacity-25 text-primary-500 fill-current w-24`;
-const SvgDotPattern4 = tw(
-  SvgDotPatternIcon
-)`absolute bottom-0 right-0 transform translate-x-20 rotate-90 -translate-y-24 -z-10 opacity-25 text-primary-500 fill-current w-24`;
 
 const SBIconLoc = require("../../images/sb-icon.jpg");
 const LIUIconLoc = require("../../images/liu-icon.png");
