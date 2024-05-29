@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.692b1c6c.css",
-    "main.js": "/static/js/main.ade8dc5a.js",
+    "main.js": "/static/js/main.c243184c.js",
     "static/media/osaka-background.jpg": "/static/media/osaka-background.13fd90d955569d842a21.jpg",
     "static/media/winter-background.jpg": "/static/media/winter-background.2d51d2af2871ec8bc843.jpg",
     "static/media/liu-logo.jpg": "/static/media/liu-logo.5725214a20c0bb8f6c98.jpg",
@@ -19,10 +19,10 @@
     "static/media/x.svg": "/static/media/x.6c9a4ba71a333be7b021fc6da39d864c.svg",
     "static/media/logo.svg": "/static/media/logo.2c489fc453a1783cbadacf914efa3df6.svg",
     "main.692b1c6c.css.map": "/static/css/main.692b1c6c.css.map",
-    "main.ade8dc5a.js.map": "/static/js/main.ade8dc5a.js.map"
+    "main.c243184c.js.map": "/static/js/main.c243184c.js.map"
   },
   "entrypoints": [
     "static/css/main.692b1c6c.css",
-    "static/js/main.ade8dc5a.js"
+    "static/js/main.c243184c.js"
   ]
 }
