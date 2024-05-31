@@ -57,7 +57,7 @@ class FirstPage extends React.Component {
         <OpacityOverlay />
         <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
         <HeroContainer>
-          <StyledHeader />
+          {/* <StyledHeader /> */}
           <AnimationRevealPage>
             <Content>
               <Heading>{heading}</Heading>

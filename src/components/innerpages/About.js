@@ -581,6 +581,9 @@ class About extends React.Component {
     return (
       <ReactFullpage
         navigation
+        scrollingSpeed={1000}
+        autoScrolling={false}
+        fitToSection={false}
         render={() => {
           return (
             <ReactFullpage.Wrapper>

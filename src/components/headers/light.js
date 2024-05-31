@@ -9,6 +9,7 @@ import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 import logo from "../../images/logo.svg";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
+import Navigation from "./navigation.js";
 
 const Header = tw.header`
   flex justify-between items-center
@@ -98,17 +99,17 @@ export default ({
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
 
-  return (
+  return <Navigation></Navigation>; /* (
     <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
-        {/* {logoLink} */}
+        {logoLink}
         {links}
       </DesktopNavLinks>
 
       <MobileNavLinksContainer
         css={collapseBreakpointCss.mobileNavLinksContainer}
       >
-        {/* {logoLink} */}
+        {logoLink}
         <MobileNavLinks
           initial={{ x: "150%", display: "none" }}
           animate={animation}
@@ -128,7 +129,7 @@ export default ({
         </NavToggle>
       </MobileNavLinksContainer>
     </Header>
-  );
+  ); */
 };
 
 /* The below code is for generating dynamic break points for navbar.

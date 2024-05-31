@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./StartPage.js";
 import About from "./components/innerpages/About.js";
 import Portfolio from "./components/innerpages/Portfolio.js";
+import Navigation from "components/headers/navigation.js";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
 const Root = () => (
   <>
     <GlobalStyles />
+    <Navigation />
     <HashRouter>
       <App />
     </HashRouter>
