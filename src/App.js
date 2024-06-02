@@ -1,4 +1,5 @@
 import React from "react";
+import tw from "twin.macro";
 import GlobalStyles from "styles/GlobalStyles";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
@@ -7,6 +8,8 @@ import StartPage from "./StartPage.js";
 import About from "./components/innerpages/About.js";
 import Portfolio from "./components/innerpages/Portfolio.js";
 import Navigation from "components/headers/navigation.js";
+import HeaderBase from "components/headers/light.js";
+const Header = tw(HeaderBase)`max-w-none`;
 
 const App = () => {
   return (
@@ -23,7 +26,7 @@ const App = () => {
 const Root = () => (
   <>
     <GlobalStyles />
-    <Navigation />
+    <Header />
     <HashRouter>
       <App />
     </HashRouter>

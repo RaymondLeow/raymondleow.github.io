@@ -12,7 +12,7 @@ import { SectionHeading } from "../misc/Headings.js";
 import BackgroundImage from "../../images/winter-background.jpg";
 
 const OpacityOverlay = tw.div`absolute inset-0 bg-black opacity-75`;
-const StyledHeader = styled(Header)`
+/* const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none w-full`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
     ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
@@ -20,7 +20,7 @@ const StyledHeader = styled(Header)`
   ${NavToggle}.closed {
     ${tw`text-gray-100 hover:text-primary-500`}
   }
-`;
+`; */
 const Heading = tw(
   SectionHeading
 )`mb-8 text-left text-gray-100 leading-3 tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`;

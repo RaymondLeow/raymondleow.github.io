@@ -7,6 +7,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
 import logo from "../../images/logo.svg";
+import { LogoLink } from "./logo.js";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import Navigation from "./navigation.js";
@@ -34,14 +35,14 @@ export const PrimaryLink = tw(NavLink)`
   border-b-0
 `;
 
-export const LogoLink = styled(NavLink)`
+/* export const LogoLink = styled(NavLink)`
   ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
 
   img {
     ${tw`w-10 mr-3`}
   }
 `;
-
+ */
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
   lg:hidden z-20 focus:outline-none hocus:text-primary-500 transition duration-300
@@ -89,21 +90,16 @@ export default ({
   const collapseBreakpointCss =
     collapseBreakPointCssMap[collapseBreakpointClass];
 
-  const defaultLogoLink = (
-    <LogoLink href="/">
-      <img src={logo} alt="logo" />
-      Raymond Leow
-    </LogoLink>
-  );
+  const defaultLogoLink = <LogoLink />;
 
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;
 
-  return <Navigation></Navigation>; /* (
-    <Header className={className || "header-light"}>
+  return <Navigation />;
+  {
+    /*( <Header className={className || "header-light"}>
       <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
-        {logoLink}
-        {links}
+        <Navigation />
       </DesktopNavLinks>
 
       <MobileNavLinksContainer
@@ -128,8 +124,8 @@ export default ({
           )}
         </NavToggle>
       </MobileNavLinksContainer>
-    </Header>
-  ); */
+    </Header> )*/
+  }
 };
 
 /* The below code is for generating dynamic break points for navbar.
