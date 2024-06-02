@@ -207,6 +207,7 @@ module.exports = {
       auto: "auto",
       cover: "cover",
       contain: "contain",
+      "4px": "4px",
     },
     borderColor: (theme) => ({
       ...theme("colors"),
@@ -302,6 +303,9 @@ module.exports = {
         '"Courier New"',
         "monospace",
       ],
+      plaster: ["Plaster", "sans-serif"],
+      publicsans: ["Public Sans", "Public Sans Placeholder", "sans-serif"],
+      ptserif: ["PT Serif", "PT Serif Placeholder", "serif"],
     },
     fontSize: {
       xs: "0.75rem",
@@ -711,6 +715,9 @@ module.exports = {
       700: "700ms",
       1000: "1000ms",
     },
+    backdropBlur: {
+      3: "3px",
+    },
   },
   variants: {
     accessibility: ["responsive", "focus"],
@@ -803,5 +810,23 @@ module.exports = {
     transitionDuration: ["responsive"],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".backdrop-blur-3": {
+          "backdrop-filter": "blur(3px)",
+          "-webkit-backdrop-filter": "blur(3px)",
+        },
+        ".bg-radial-gradient": {
+          "background-image":
+            "radial-gradient(rgba(0, 0, 0, 0) 1px, white 1px)",
+        },
+        ".bg-size-4px": {
+          "background-size": "4px 4px",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

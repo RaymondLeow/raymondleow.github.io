@@ -1,76 +1,85 @@
-import React from "react";
-import styled from "styled-components";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useVelocity,
+  useAnimationFrame,
+} from "framer-motion";
+import { wrap } from "@motionone/utils";
 import tw from "twin.macro";
-import Header, {
-  NavLink,
-  LogoLink,
-  NavToggle,
-  DesktopNavLinks,
-} from "../headers/light.js";
-import AnimationRevealPage from "../../helpers/AnimationRevealPage.js";
-import { SectionHeading } from "../misc/Headings.js";
-import BackgroundImage from "../../images/winter-background.jpg";
+import ResponsivePicture from "components/features/ResponsivePicture";
 
-const OpacityOverlay = tw.div`absolute inset-0 bg-black opacity-75`;
-/* const StyledHeader = styled(Header)`
-  ${tw`pt-8 max-w-none w-full`}
-  ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
-    ${tw`text-gray-100 hover:border-gray-300 hover:text-gray-300`}
-  }
-  ${NavToggle}.closed {
-    ${tw`text-gray-100 hover:text-primary-500`}
-  }
-`; */
-const Heading = tw(
-  SectionHeading
-)`mb-8 text-left text-gray-100 leading-3 tracking-tight sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`;
-const Introduction = tw.div`font-light text-gray-100 text-right sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl px-8 py-8`;
-const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 font-bold shadow-md transition-all duration-300 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900 focus:outline-none focus:shadow-outline`;
+const Parallax = tw.div`overflow-hidden tracking-tight leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap`;
+const Scroller = tw(
+  motion.div
+)`font-semibold uppercase text-6xl flex whitespace-nowrap flex-nowrap  font-plaster`;
+const Child = tw.span`block mr-[30px]`;
+const Section = tw.div`relative flex justify-center items-center h-screen`;
+const ParallaxSection = tw.div`absolute flex justify-center items-center flex-col`;
+const ProfilePicture = tw(ResponsivePicture)`absolute`;
+const TextFiller = tw.div`h-[180px]`;
+const H1 = tw.h1`font-publicsans text-5xl font-medium`;
+const H2 = tw.h2`font-publicsans text-4xl font-bold`;
+const Italic = tw.span`font-bold`;
 
-const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col`;
-const Content = tw.div`px-4 flex flex-1 flex-col justify-center items-center`;
-const Container = styled.div`
-  ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-image: url(${BackgroundImage})
-`;
-class FirstPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.moveDown = this.moveDown.bind(this);
-    this.moveBottom = this.moveBottom.bind(this);
-  }
+function ParallaxText({ children, baseVelocity = 100 }) {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400,
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false,
+  });
 
-  moveDown() {
-    this.props.fullpageApi.moveSectionDown();
-  }
+  const x = useTransform(baseX, (v) => `${wrap(-10, -30, v)}%`);
 
-  moveBottom() {
-    this.props.fullpageApi.moveTo(4);
-  }
+  const directionFactor = useRef(1);
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-  render() {
-    const heading = "Raymond Leow";
-    const description =
-      "Hi! This site is still under development. Please hold on! :)";
-    return (
-      <Container>
-        <OpacityOverlay />
-        <div style={{ backgroundImage: `url(${BackgroundImage})` }}></div>
-        <HeroContainer>
-          {/* <StyledHeader /> */}
-          <AnimationRevealPage>
-            <Content>
-              <Heading>{heading}</Heading>
-              <Introduction>{description}</Introduction>
-              <PrimaryAction onClick={this.moveDown}>
-                Let's start!
-              </PrimaryAction>
-            </Content>
-          </AnimationRevealPage>
-        </HeroContainer>
-      </Container>
-    );
-  }
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+
+    baseX.set(baseX.get() + moveBy);
+  });
+  return (
+    <Parallax>
+      <Scroller style={{ x }}>
+        <Child>{children} </Child>
+        <Child>{children} </Child>
+        <Child>{children} </Child>
+        <Child>{children} </Child>
+        <Child>{children} </Child>
+      </Scroller>
+    </Parallax>
+  );
 }
 
-export default FirstPage;
+export default function FirstPage() {
+  return (
+    <Section>
+      <ParallaxSection>
+        <H1>
+          Hello, I'm <Italic>Raymond</Italic>!
+        </H1>
+        <TextFiller />
+        <ParallaxText baseVelocity={-1}>Raymond Leow</ParallaxText>
+        <ParallaxText baseVelocity={1}>Personal Page</ParallaxText>
+        <TextFiller />
+        <H2>Let's Collaborate!</H2>
+      </ParallaxSection>
+      <ProfilePicture></ProfilePicture>
+    </Section>
+  );
+}
