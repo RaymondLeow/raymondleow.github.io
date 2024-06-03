@@ -718,6 +718,9 @@ module.exports = {
     backdropBlur: {
       3: "3px",
     },
+    scrollSnapType: {
+      "y-mandatory": "y mandatory",
+    },
   },
   variants: {
     accessibility: ["responsive", "focus"],
@@ -775,6 +778,7 @@ module.exports = {
     pointerEvents: ["responsive"],
     position: ["responsive"],
     resize: ["responsive"],
+    scrollSnapType: ["responsive"],
     stroke: ["responsive"],
     strokeWidth: ["responsive"],
     tableLayout: ["responsive"],
@@ -823,6 +827,9 @@ module.exports = {
         },
         ".bg-size-4px": {
           "background-size": "4px 4px",
+        },
+        ".scroll-snap-y-mandatory": {
+          scrollSnapType: "y mandatory",
         },
       };
 
