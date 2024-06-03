@@ -15,7 +15,7 @@ import ResponsivePicture from "components/features/ResponsivePicture";
 const Parallax = tw.div`overflow-hidden tracking-tight leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap`;
 const Scroller = tw(
   motion.div
-)`font-semibold uppercase text-6xl flex whitespace-nowrap flex-nowrap  font-plaster`;
+)`font-semibold uppercase text-7xl flex whitespace-nowrap flex-nowrap  font-plaster`;
 const Child = tw.span`block mr-[30px]`;
 const Section = tw.div`relative flex justify-center items-center h-screen`;
 const ParallaxSection = tw.div`absolute flex justify-center items-center flex-col`;
@@ -37,7 +37,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
     clamp: false,
   });
 
-  const x = useTransform(baseX, (v) => `${wrap(-10, -30, v)}%`);
+  const x = useTransform(baseX, (v) => `${wrap(0, -20, v)}%`);
 
   const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
@@ -77,7 +77,7 @@ export default function FirstPage() {
         <ParallaxText baseVelocity={-1}>Raymond Leow</ParallaxText>
         <ParallaxText baseVelocity={1}>Personal Page</ParallaxText>
         <TextFiller />
-        <H2>Let's Collaborate!</H2>
+        <H2>The site is under construction. Please hold on!</H2>
       </ParallaxSection>
       <ProfilePicture></ProfilePicture>
     </Section>
