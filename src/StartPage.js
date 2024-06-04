@@ -12,7 +12,20 @@ const StartPage = () => {
   const anchors = ["hello", "who_am_i", "experience", "contact"];
   return (
     <>
-      <ReactFullpage
+      <Section>
+        <FirstPage />
+      </Section>
+      <SecondPage />
+      <Section>
+        <ThirdPage />
+      </Section>
+      <Section>
+        <FourthPage />
+      </Section>
+    </>
+  );
+  {
+    /* <ReactFullpage
         scrollingSpeed={1000}
         autoScrolling={false}
         fitToSection={false}
@@ -46,7 +59,8 @@ const StartPage = () => {
         }}
       />
     </>
-  );
+  ); */
+  }
 };
 
 export default StartPage;

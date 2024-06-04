@@ -12,7 +12,7 @@ const Section = tw.section`h-screen flex justify-center items-center relative`;
 const H2 = tw(
   motion.h2
 )`m-0 absolute text-[56px] font-bold tracking-[-3px] leading-tight`;
-const MainContainer = tw.div`h-screen overflow-y-scroll scroll-snap-y-mandatory`;
+const MainContainer = tw.div``;
 
 function Image({ id }) {
   const ref = useRef(null);
