@@ -14,17 +14,17 @@ const H2 = tw(
 )`m-0 absolute text-[56px] font-bold tracking-[-3px] leading-tight`;
 const MainContainer = tw.div``;
 
-function Image({ id }) {
+function Image({ image, location }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
 
   return (
-    <Section style={{ scrollSnapAlign: "center", perspective: "500px" }}>
+    <Section style={{ scrollSnapAlign: "center" }}>
       <ImageBorder ref={ref}>
-        <ImageContainer src={`/${id}.jpg`} />
+        <ImageContainer src={`/${image}.jpg`} />
       </ImageBorder>
-      <H2 style={{ y, left: "calc(50% + 130px)" }}>{`#00${id}`}</H2>
+      <H2 style={{ y, left: "calc(50% + 200px)" }}>{`${location}`}</H2>
     </Section>
   );
 }
@@ -36,11 +36,17 @@ export default function SecondPage() {
     damping: 30,
     restDelta: 0.001,
   });
-
+  const locations = [
+    "Infor",
+    "Euronetics",
+    "Linköping University",
+    "Briteback",
+    "Teaching Assistant",
+  ];
   return (
     <MainContainer>
-      {[1, 2, 3, 4, 5].map((image) => (
-        <Image id={image} />
+      {locations.map((location, image) => (
+        <Image image={image} location={location} />
       ))}
       <Progress style={{ scaleX }} />
     </MainContainer>
