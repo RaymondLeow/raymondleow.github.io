@@ -4,10 +4,15 @@ import tw from "twin.macro";
 function useParallax(value, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
+const LiuBackground = require("../../images/liu-background.jpg");
+const InforBackground = require("../../images/background-m3.png");
+const EuroneticsBackground = require("../../images/background-schemabanken.png");
+const LynesBackground = require("../../images/background-lynes-1.webp");
+const LiuBackground2 = require("../../images/liu-background-2.jpg");
 
 const Progress = tw(motion.div)`fixed left-0 right-0 h-[5px] bottom-[100px]`;
 const ImageContainer = tw.img`absolute inset-0 w-full h-full`;
-const ImageBorder = tw.div`w-[300px] h-[400px] relative max-h-[90vh] m-[20px] bg-white overflow-hidden`;
+const ImageBorder = tw.div`w-[600px] h-[400px] relative max-h-[90vh] m-[20px] bg-white overflow-hidden`;
 const Section = tw.section`h-screen flex justify-center items-center relative`;
 const H2 = tw(
   motion.h2
@@ -22,7 +27,7 @@ function Image({ image, location }) {
   return (
     <Section style={{ scrollSnapAlign: "center" }}>
       <ImageBorder ref={ref}>
-        <ImageContainer src={`/${image}.jpg`} />
+        <ImageContainer src={image} />
       </ImageBorder>
       <H2 style={{ y, left: "calc(50% + 200px)" }}>{`${location}`}</H2>
     </Section>
@@ -37,15 +42,15 @@ export default function SecondPage() {
     restDelta: 0.001,
   });
   const locations = [
-    "Infor",
-    "Euronetics",
-    "Linköping University",
-    "Briteback",
-    "Teaching Assistant",
+    ["Infor", InforBackground],
+    ["Euronetics", EuroneticsBackground],
+    ["Linköping University", LiuBackground],
+    ["Lynes (formerly Briteback)", LynesBackground],
+    ["Teaching Assistant", LiuBackground2],
   ];
   return (
     <MainContainer>
-      {locations.map((location, image) => (
+      {locations.map(([location, image]) => (
         <Image image={image} location={location} />
       ))}
       <Progress style={{ scaleX }} />
