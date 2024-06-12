@@ -24,7 +24,7 @@ const H2 = tw(
 const MainContainer = tw.div``;
 
 function Image({ location }) {
-  const { background, title } = location;
+  const { background, title, text } = location;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
@@ -35,6 +35,7 @@ function Image({ location }) {
         <ImageContainer src={background} />
       </ImageBorder>
       <H2 style={{ y, left: "calc(50% + 200px)" }}>{`${title}`}</H2>
+      <div>{text}</div>
     </Section>
   );
 }
@@ -47,11 +48,31 @@ export default function SecondPage() {
     restDelta: 0.001,
   });
   const locations = [
-    { title: "Infor", background: InforBackground },
-    { title: "Euronetics", background: EuroneticsBackground },
-    { title: "Linköping University", background: LiuBackground },
-    { title: "Lynes (formerly Briteback)", background: LynesBackground },
-    { title: "Teaching Assistant", background: LiuBackground2 },
+    {
+      title: "Fast and Efficient Development",
+      text: "As a Demo Services Engineer, I develop innovative front-end prototypes, highlighting Infor's capabilities to adapt to the customer's needs. Do you have an idea for the next-gen warehouse management system or perhaps a highly interactive Gantt Chart with your website? Sign me up!",
+      background: InforBackground,
+    },
+    {
+      title: "High-Performing Single-Page Apps",
+      text: "With an abudance of experience in full-stack development, I can help you build scaling web components from scratch. Having built numerous single-page applications, I can help you bring scaling and aesthetically pleasing to life.",
+      background: EuroneticsBackground,
+    },
+    {
+      title: "Strong Fundamentals in Computer Science",
+      text: "With a Master's degree in computer science, I know the basics and the advanced of software engineering, and front-end technologies at that.",
+      background: LiuBackground,
+    },
+    {
+      title: "Open-Source and Integration Expert",
+      text: "What do you need to integrate to your product? Having integrated a plethora of Open Source projects, such as Grandstream, Janus WebRTC, FullCalendar, SIP.js, and Frappe Gantt, I'll be the one you can count on for the next integration.",
+      background: LynesBackground,
+    },
+    {
+      title: "Programming mentor",
+      text: "As a teaching assistant at Linköping University, I have gathered the proficiency in teaching students in functional and imperative programming.",
+      background: LiuBackground2,
+    },
   ];
   return (
     <MainContainer>
