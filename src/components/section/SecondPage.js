@@ -11,31 +11,62 @@ const EuroneticsBackground = require("../../images/background-schemabanken.png")
 const LynesBackground = require("../../images/background-lynes-1.webp");
 const LiuBackground2 = require("../../images/liu-background-2.jpg");
 
+const LiuLogo = require("../../images/liu-logo.png");
+const LynesLogo = require("../../images/lynes-logo.svg");
+const EuroneticsLogo = require("../../images/euronetics-logo.png");
+const InforLogo = require("../../images/infor-logo.png");
+
 const Progress = tw(motion.div)`fixed left-0 right-0 h-[5px] bottom-[100px]`;
-const ImageContainer = tw.img`absolute inset-0 w-full h-full`;
+const ImageContainer = tw.img`inset-0 w-full bg-cover`;
 const ImageBorder = styled.div(({ width = "600" }) => ({
   width: `${width}px`,
-  ...tw`h-[400px] relative max-h-[90vh] m-[20px] bg-white overflow-hidden`,
+  ...tw`relative max-h-[90vh] m-[20px] bg-white overflow-hidden flex flex-col items-center ml-auto`,
 }));
+const OuterImageBorder = tw.div`flex items-center justify-center`;
+
+const CompanyContainer = ({ logo }) => {
+  const renderContainer = () => {
+    if (logo) {
+      return (
+        <img
+          src={logo.default || logo}
+          style={{ height: "60px", backgroundSize: "cover" }}
+        />
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+  return renderContainer();
+};
+
 const Section = tw.section`h-screen flex justify-center items-center relative`;
+const TextContainer = tw(motion.div)`w-[400px]`;
 const H2 = tw(
   motion.h2
-)`m-0 absolute text-[56px] font-bold tracking-[-3px] leading-tight`;
+)`m-0 text-[56px] font-bold tracking-[-3px] leading-tight mb-[10px]`;
 const MainContainer = tw.div``;
 
 function Image({ location }) {
-  const { background, title, text } = location;
+  const { background, title, text, logo } = location;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
 
   return (
     <Section style={{ scrollSnapAlign: "center" }}>
-      <ImageBorder width="600" ref={ref}>
-        <ImageContainer src={background} />
-      </ImageBorder>
-      <H2 style={{ y, left: "calc(50% + 200px)" }}>{`${title}`}</H2>
-      <div>{text}</div>
+      <OuterImageBorder>
+        <ImageBorder width="600" ref={ref}>
+          <ImageContainer src={background} />
+          <CompanyContainer logo={logo} />
+        </ImageBorder>
+      </OuterImageBorder>
+      <TextContainer style={{ y, left: "calc(50% + 200px)" }}>
+        <div>
+          <H2>{`${title}`}</H2>
+        </div>
+        <div>{text}</div>
+      </TextContainer>
     </Section>
   );
 }
@@ -50,28 +81,45 @@ export default function SecondPage() {
   const locations = [
     {
       title: "Fast and Efficient Development",
-      text: "As a Demo Services Engineer, I develop innovative front-end prototypes, highlighting Infor's capabilities to adapt to the customer's needs. Do you have an idea for the next-gen warehouse management system or perhaps a highly interactive Gantt Chart with your website? Sign me up!",
+      text: `As a Demo Services Engineer at Infor, my focus lies in creating cutting-edge front-end prototypes that demonstrate our agility in meeting customer requirements. 
+        Whether you envision a next-generation warehouse management system or a dynamic, 
+        interactive Gantt chart for your website, I am eager to transform your ideas into reality.`,
       background: InforBackground,
+      logo: InforLogo,
     },
     {
       title: "High-Performing Single-Page Apps",
-      text: "With an abudance of experience in full-stack development, I can help you build scaling web components from scratch. Having built numerous single-page applications, I can help you bring scaling and aesthetically pleasing to life.",
+      text: `With my experience leading the development of a flexible scheduling tool at Euronetics, I'm here to help you build scalable web components from the ground up. 
+        I bring a wealth of full-stack development expertise, particularly in database design and crafting detailed web component animations. 
+        Through my work on various single-page applications, I aim to deliver solutions that are not only scalable but also visually appealing.`,
       background: EuroneticsBackground,
+      logo: EuroneticsLogo,
     },
     {
-      title: "Strong Fundamentals in Computer Science",
-      text: "With a Master's degree in computer science, I know the basics and the advanced of software engineering, and front-end technologies at that.",
+      title: "Strong Fundamentals in Front-End Technologies",
+      text: `With a Master's degree in Computer Science from Linköping University, 
+        I have a solid foundation in software engineering and advanced skills in full-stack development. 
+        Over time, my passion has gravitated towards front-end frameworks. 
+        I have hands-on experience with AngularJS, Angular, React, and even Ruby on Rails, among others.`,
       background: LiuBackground,
+      logo: LiuLogo,
     },
     {
       title: "Open-Source and Integration Expert",
-      text: "What do you need to integrate to your product? Having integrated a plethora of Open Source projects, such as Grandstream, Janus WebRTC, FullCalendar, SIP.js, and Frappe Gantt, I'll be the one you can count on for the next integration.",
+      text: `At Lynes (formerly Briteback), I embarked on my journey into API integration, laying the foundation for years of experience. 
+      Since then, I have successfully integrated a variety of Open Source projects including Grandstream, Janus WebRTC, FullCalendar, SIP.js, and Frappe Gantt. 
+      If you have any integration needs for your product, I'm here to ensure seamless integration and reliable support for your next project.`,
       background: LynesBackground,
+      logo: LynesLogo,
     },
     {
-      title: "Programming mentor",
-      text: "As a teaching assistant at Linköping University, I have gathered the proficiency in teaching students in functional and imperative programming.",
+      title: "Programming Mentor",
+      text: `During my tenure as a teaching assistant at Linköping University, 
+        I have honed my skills in instructing students in both functional and imperative programming paradigms. 
+        I firmly believe in a hands-on approach to learning, coupled with a collaborative mindset. 
+        My philosophy emphasizes empowerment and a growth-oriented environment, where every individual can cultivate their potential and excel.`,
       background: LiuBackground2,
+      logo: LiuLogo,
     },
   ];
   return (

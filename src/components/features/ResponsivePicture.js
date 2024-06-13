@@ -12,8 +12,6 @@ export default function ResponsivePicture() {
   });
 
   /* Constants */
-  /* Customize these to change the intensity of the 
-  transforms and the bounciness of the animations. */
   const rotateValue = 15;
   const transformValue = rotateValue * 2;
   const springValue = { stiffness: 400, damping: 30 };
@@ -26,8 +24,6 @@ export default function ResponsivePicture() {
   const shadowX = useSpring(0, springValue);
   const shadowY = useSpring(30, springValue);
 
-  /* MotionTemplate for shadow property */
-  /* With useMotionTemplate, you can use MotionValues (and thus, useSpring) within strings. This is useful for animating and interpolating properties like Drop Shadow, Box Shadow, Gradients, and many more. */
   const filter = useMotionTemplate`drop-shadow(${shadowX}px ${shadowY}px 20px rgba(0, 0, 68, 0.5))`;
 
   /* Convert cursor position values */
