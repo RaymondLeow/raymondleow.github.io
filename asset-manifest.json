@@ -1,28 +1,34 @@
 {
   "files": {
     "main.css": "/static/css/main.692b1c6c.css",
-    "main.js": "/static/js/main.dd6a5b66.js",
+    "main.js": "/static/js/main.a2284725.js",
     "static/media/profile_pic.png": "/static/media/profile_pic.22df56073942a2f656ab.png",
     "static/media/osaka-background.jpg": "/static/media/osaka-background.13fd90d955569d842a21.jpg",
+    "static/media/background-m3.png": "/static/media/background-m3.3fa4098115ec74e37575.png",
     "static/media/liu-logo.jpg": "/static/media/liu-logo.5725214a20c0bb8f6c98.jpg",
     "static/media/profile_pic3.jpg": "/static/media/profile_pic3.05608a2e43f3443e7453.jpg",
-    "static/media/profile_pic2.jpg": "/static/media/profile_pic2.5aa5f066b56f971638fb.jpg",
     "static/media/sb-logo.jpg": "/static/media/sb-logo.e0b4c77ec9d3a773070e.jpg",
+    "static/media/liu-background-2.jpg": "/static/media/liu-background-2.62e9933dda874e937e34.jpg",
+    "static/media/liu-background.jpg": "/static/media/liu-background.f4aa4e93ee624afbac84.jpg",
     "static/media/briteback-logo.png": "/static/media/briteback-logo.1ed0140cdc2d2278e13c.png",
     "static/media/sb-icon.jpg": "/static/media/sb-icon.22b526865aa34a3aa78d.jpg",
+    "static/media/background-schemabanken.png": "/static/media/background-schemabanken.a2c2a6881663a0350099.png",
     "static/media/CV.pdf": "/static/media/CV.2b520ec7a5664bfb41f6.pdf",
+    "static/media/liu-logo.png": "/static/media/liu-logo.538df8573c5b1eab753b.png",
     "static/media/dot-pattern.svg": "/static/media/dot-pattern.ee6f4f0e6654d6e38850896165f9dc36.svg",
     "static/media/infor-icon.png": "/static/media/infor-icon.27f07e5a11be349e256c.png",
+    "static/media/background-lynes-1.webp": "/static/media/background-lynes-1.edf275cc496541535007.webp",
+    "static/media/lynes-logo.svg": "/static/media/lynes-logo.1f5d83472792d8644968489ce2b40e16.svg",
     "index.html": "/index.html",
     "static/media/shield-icon.svg": "/static/media/shield-icon.daefe14b320b14fbd9cbd18908ac93ec.svg",
     "static/media/menu.svg": "/static/media/menu.644fa295fdd5f662e642ba6bfb084239.svg",
     "static/media/x.svg": "/static/media/x.6c9a4ba71a333be7b021fc6da39d864c.svg",
     "static/media/logo.svg": "/static/media/logo.2c489fc453a1783cbadacf914efa3df6.svg",
     "main.692b1c6c.css.map": "/static/css/main.692b1c6c.css.map",
-    "main.dd6a5b66.js.map": "/static/js/main.dd6a5b66.js.map"
+    "main.a2284725.js.map": "/static/js/main.a2284725.js.map"
   },
   "entrypoints": [
     "static/css/main.692b1c6c.css",
-    "static/js/main.dd6a5b66.js"
+    "static/js/main.a2284725.js"
   ]
 }
