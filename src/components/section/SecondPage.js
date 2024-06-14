@@ -24,11 +24,12 @@ const ImageBorder = styled.div(({ width = "600" }) => ({
 }));
 const OuterImageBorder = tw.div`flex items-center justify-center`;
 
-const CompanyContainer = ({ logo }) => {
+const CompanyContainer = ({ logo, title }) => {
   const renderContainer = () => {
     if (logo) {
       return (
         <img
+          alt={title}
           src={logo.default || logo}
           style={{ height: "60px", backgroundSize: "cover" }}
         />
@@ -58,7 +59,7 @@ function Image({ location }) {
       <OuterImageBorder>
         <ImageBorder width="600" ref={ref}>
           <ImageContainer src={background} />
-          <CompanyContainer logo={logo} />
+          <CompanyContainer logo={logo} title={title} />
         </ImageBorder>
       </OuterImageBorder>
       <TextContainer style={{ y, left: "calc(50% + 200px)" }}>
@@ -86,6 +87,7 @@ export default function SecondPage() {
         interactive Gantt chart for your website, I am eager to transform your ideas into reality.`,
       background: InforBackground,
       logo: InforLogo,
+      id: 1,
     },
     {
       title: "High-Performing Single-Page Apps",
@@ -94,6 +96,7 @@ export default function SecondPage() {
         Through my work on various single-page applications, I aim to deliver solutions that are not only scalable but also visually appealing.`,
       background: EuroneticsBackground,
       logo: EuroneticsLogo,
+      id: 2,
     },
     {
       title: "Strong Fundamentals in Front-End Technologies",
@@ -103,6 +106,7 @@ export default function SecondPage() {
         I have hands-on experience with AngularJS, Angular, React, and even Ruby on Rails, among others.`,
       background: LiuBackground,
       logo: LiuLogo,
+      id: 3,
     },
     {
       title: "Open-Source and Integration Expert",
@@ -111,6 +115,7 @@ export default function SecondPage() {
       If you have any integration needs for your product, I'm here to ensure seamless integration and reliable support for your next project.`,
       background: LynesBackground,
       logo: LynesLogo,
+      id: 4,
     },
     {
       title: "Programming Mentor",
@@ -120,12 +125,13 @@ export default function SecondPage() {
         My philosophy emphasizes empowerment and a growth-oriented environment, where every individual can cultivate their potential and excel.`,
       background: LiuBackground2,
       logo: LiuLogo,
+      id: 5,
     },
   ];
   return (
     <MainContainer>
       {locations.map((location) => (
-        <Image location={location} />
+        <Image alt={location.title} key={location.id} location={location} />
       ))}
       <Progress style={{ scaleX }} />
     </MainContainer>

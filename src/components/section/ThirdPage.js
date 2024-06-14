@@ -14,6 +14,8 @@ import defaultCardImage from "../../images/shield-icon.svg";
 import LIUIcon from "../../images/liu-icon.png";
 import SBIcon from "../../images/sb-icon.jpg";
 import InforIcon from "../../images/infor-icon.png";
+import Counter from "components/features/Counter.js";
+import ResponsiveCard from "components/features/ResponsiveCard.js";
 
 const Container = tw.div`relative bg-primary-900 -mx-8 px-8 text-gray-100`;
 
@@ -61,7 +63,7 @@ const Card = styled.div`
 
 export default ({
   cards = null,
-  heading = "What have I done?",
+  heading = "My role in numbers",
   subheading = "",
   description = "Want to know more?",
   buttonRounded = true,
@@ -102,16 +104,14 @@ export default ({
           <Column key={i}>
             <Card>
               <span className="cardContent">
-                <span className="imageContainer">
+                {/* <span className="imageContainer">
                   <img src={card.imageSrc || defaultCardImage} alt="" />
                 </span>
-                <span className="textContainer">
-                  <span className="title">{card.title || "Fully Secure"}</span>
-                  <p className="description">
-                    {card.description ||
-                      "Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud."}
-                  </p>
-                </span>
+                <span className="textContainer"> */}
+                {/* <span className="title">{card.title}</span>
+                  <p className="description">{card.description}</p> */}
+                <ResponsiveCard />
+                {/* </span> */}
               </span>
             </Card>
           </Column>
