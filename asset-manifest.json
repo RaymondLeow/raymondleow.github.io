@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.692b1c6c.css",
-    "main.js": "/static/js/main.a2284725.js",
+    "main.js": "/static/js/main.7b4866d9.js",
     "static/media/profile_pic.png": "/static/media/profile_pic.22df56073942a2f656ab.png",
     "static/media/osaka-background.jpg": "/static/media/osaka-background.13fd90d955569d842a21.jpg",
     "static/media/background-m3.png": "/static/media/background-m3.3fa4098115ec74e37575.png",
@@ -20,15 +20,14 @@
     "static/media/background-lynes-1.webp": "/static/media/background-lynes-1.edf275cc496541535007.webp",
     "static/media/lynes-logo.svg": "/static/media/lynes-logo.1f5d83472792d8644968489ce2b40e16.svg",
     "index.html": "/index.html",
-    "static/media/shield-icon.svg": "/static/media/shield-icon.daefe14b320b14fbd9cbd18908ac93ec.svg",
     "static/media/menu.svg": "/static/media/menu.644fa295fdd5f662e642ba6bfb084239.svg",
     "static/media/x.svg": "/static/media/x.6c9a4ba71a333be7b021fc6da39d864c.svg",
     "static/media/logo.svg": "/static/media/logo.2c489fc453a1783cbadacf914efa3df6.svg",
     "main.692b1c6c.css.map": "/static/css/main.692b1c6c.css.map",
-    "main.a2284725.js.map": "/static/js/main.a2284725.js.map"
+    "main.7b4866d9.js.map": "/static/js/main.7b4866d9.js.map"
   },
   "entrypoints": [
     "static/css/main.692b1c6c.css",
-    "static/js/main.a2284725.js"
+    "static/js/main.7b4866d9.js"
   ]
 }
