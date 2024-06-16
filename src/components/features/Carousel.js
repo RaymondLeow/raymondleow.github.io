@@ -84,8 +84,8 @@ const LogoContainer = ({ logo, title }) => {
   };
   return renderContainer();
 };
-const Previous = tw.div`text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 scale-x-neg`;
-const Next = tw.div`text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 right-[10px]`;
+const Previous = tw.div`drop-shadow-md hover:shadow-outline border border-gray-400 text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 scale-x-[-1px] left-[20px]`;
+const Next = tw.div`drop-shadow-md hover:shadow-outline border border-gray-400 text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 right-[20px]`;
 const carouselParts = [
   {
     imageSrc: InforLogo,
