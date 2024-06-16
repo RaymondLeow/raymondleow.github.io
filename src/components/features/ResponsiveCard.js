@@ -67,7 +67,8 @@ export default function ResponsiveCard({ card }) {
     shadowX.set(0);
     shadowY.set(40);
   };
-
+  let [color1, color2] = card.colors || ["#F22", "#86F"];
+  let direction = card.direction || "180";
   return (
     <motion.div
       style={{
@@ -90,15 +91,15 @@ export default function ResponsiveCard({ card }) {
         <motion.div
           style={{
             filter,
-            width: 290,
-            height: 290,
-            borderRadius: 92,
+            width: 270,
+            height: 270,
+            borderRadius: 82,
             rotateX,
             rotateY,
             display: "flex",
             placeItems: "center",
             placeContent: "center",
-            background: "linear-gradient(180deg, #F22 0%, #86F 100%)",
+            background: `linear-gradient(${direction}deg, ${color1} 0%, ${color2} 100%)`,
           }}
         >
           <motion.div

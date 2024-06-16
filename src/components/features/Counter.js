@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import tw from "twin.macro";
 
 const TextContainer = tw.div`text-center max-w-xxs mx-auto`;
-export default function Counter({ duration = 5, card }) {
+export default function Counter({ duration = 2, card }) {
   const { number, description, postFix } = card;
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);

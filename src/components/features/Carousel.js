@@ -12,7 +12,7 @@ const EuroneticsLogo = require("../../images/euronetics-logo.png");
 const InforLogo = require("../../images/infor-logo.png");
 
 const ThreeColumnContainer = styled.div`
-  ${tw`z-10 mb-10 relative flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto h-[300px]`}
+  ${tw`z-10 relative flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto h-[300px]`}
 `;
 const VerticalSpacer = tw.div`md:mt-10 w-full`;
 
@@ -66,8 +66,8 @@ const variants = {
   },
 };
 
-const MiddleContainer = tw.div`flex items-center justify-center`;
-const Title = tw.div`text-black text-[32px] font-bold mb-10`;
+const MiddleContainer = tw.div`flex items-center justify-center text-black`;
+const Position = tw.div`text-black text-[20px] mb-10`;
 const LogoContainer = ({ logo, title }) => {
   const renderContainer = () => {
     if (logo) {
@@ -84,46 +84,108 @@ const LogoContainer = ({ logo, title }) => {
   };
   return renderContainer();
 };
-const Previous = tw.div`drop-shadow-md hover:shadow-outline border border-gray-400 text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 scale-x-[-1px] left-[20px]`;
+const Previous = tw.div`drop-shadow-md hover:shadow-outline border border-gray-400 text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 scale-x-[-1] left-[20px]`;
 const Next = tw.div`drop-shadow-md hover:shadow-outline border border-gray-400 text-black top-[calc(50%-20px)] absolute bg-white rounded-full w-10 h-10 flex justify-center items-center select-none cursor-pointer font-bold text-lg z-20 right-[20px]`;
 const carouselParts = [
   {
     imageSrc: InforLogo,
+    position: "Demo Services Engineer (Front End)",
     cards: [
       {
-        description: "Enterprise Applications Deployed",
+        description: "Enterprise Apps Built, Optimized, and Documented",
         number: 50,
         postFix: "+",
+        colors: ["#4263eb", "#d4191d"],
       },
       {
-        description: "Companies Using My Components",
+        description: "Companies Benefit from My Web & Mobile Applications",
         number: 800,
         postFix: "+",
+        colors: ["#4263eb", "#d4191d"],
       },
       {
-        description: "Cross-Functional Team Members",
+        description: "Cross-Functional Team Members Collaborated",
         number: 100,
         postFix: "+",
+        colors: ["#4263eb", "#d4191d"],
       },
     ],
   },
   {
     imageSrc: EuroneticsLogo,
+    position: "Full Stack Engineer",
     cards: [
       {
-        description: "TEST",
-        number: 50,
-        postFix: "+",
+        description: "Page Load Time Reduction Across the Core Calendar Logic",
+        number: 83,
+        postFix: "%",
+        colors: ["#3e973d", "#e0ab25"],
+        direction: 90,
       },
       {
-        description: "TEST",
-        number: 800,
-        postFix: "+",
+        description: "Boost in Productivity Using Automated Testing",
+        number: 40,
+        postFix: "%",
+        colors: ["#e0ab25", "#e0ab25"],
       },
       {
-        description: "TEST",
+        description: "Customer and Technical Support Satisfaction Rate",
+        number: 100,
+        postFix: "%",
+        colors: ["#e0ab25", "#bc1432"],
+        direction: 90,
+      },
+    ],
+  },
+  {
+    imageSrc: LynesLogo,
+    position: "Front End Developer",
+    cards: [
+      {
+        description: "Increase in Test Coverage Using Puppeteer",
+        number: 100,
+        postFix: "%",
+        colors: ["#da9695", "#fbb9b5"],
+        direction: 90,
+      },
+      {
+        description: "Reduction in Load Size with Grandstream Integration",
+        number: 40,
+        postFix: "%",
+        colors: ["#fbb9b5", "#a9e0ed"],
+        direction: 90,
+      },
+      {
+        description:
+          "Frame Rate Boost with WebRTC Client Using React and Janus SIP",
+        number: 25,
+        postFix: "%",
+        colors: ["#a9e0ed", "#a0c4d3"],
+        direction: 90,
+      },
+    ],
+  },
+  {
+    imageSrc: LiuLogo,
+    position: "Lab Assistant",
+    cards: [
+      {
+        description: "Students Mentored in Python and Problem Solving",
         number: 100,
         postFix: "+",
+        colors: ["#40b4e5", "#2dc9af"],
+      },
+      {
+        description: "Students' Lab Assignments and Exams Graded",
+        number: 400,
+        postFix: "+",
+        colors: ["#40b4e5", "#2dc9af"],
+      },
+      {
+        description: "Students Used My Course Materials and Assignments",
+        number: 800,
+        postFix: "+",
+        colors: ["#40b4e5", "#2dc9af"],
       },
     ],
   },
@@ -146,7 +208,7 @@ export const Carousel = () => {
     <div
       style={{
         width: "100vw",
-        height: "400px",
+        height: "500px",
         position: "relative",
         display: "flex",
         justifyContent: "center",
@@ -184,6 +246,9 @@ export const Carousel = () => {
             maxWidth: "100vw",
           }}
         >
+          <MiddleContainer>
+            <Position>{carouselParts[idx].position}</Position>
+          </MiddleContainer>
           <ThreeColumnContainer>
             {carouselParts[idx].cards.map((card, i) => (
               <Column key={i}>
