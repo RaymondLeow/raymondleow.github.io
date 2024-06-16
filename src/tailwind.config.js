@@ -832,6 +832,9 @@ module.exports = {
         ".scroll-snap-y-mandatory": {
           scrollSnapType: "y mandatory",
         },
+        "scale-x-neg": {
+          transform: "scale(-1)",
+        },
       };
 
       addUtilities(newUtilities, ["responsive", "hover"]);

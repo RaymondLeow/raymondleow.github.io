@@ -10,17 +10,16 @@ import {
 import { SectionDescription } from "../misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
 
-import defaultCardImage from "../../images/shield-icon.svg";
-import LIUIcon from "../../images/liu-icon.png";
-import SBIcon from "../../images/sb-icon.jpg";
-import InforIcon from "../../images/infor-icon.png";
-import Counter from "components/features/Counter.js";
-import ResponsiveCard from "components/features/ResponsiveCard.js";
+import { Carousel } from "components/features/Carousel.js";
 
-const Container = tw.div`relative -mx-8 px-8 text-gray-100`;
+const Container = tw.div`relative -mx-8 text-gray-100`;
+const LiuLogo = require("../../images/liu-logo.png");
+const LynesLogo = require("../../images/lynes-logo.svg");
+const EuroneticsLogo = require("../../images/euronetics-logo.png");
+const InforLogo = require("../../images/infor-logo.png");
 
 const ThreeColumnContainer = styled.div`
-  ${tw`z-10 relative flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
+  ${tw`z-10 mb-10 relative flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto h-[300px]`}
 `;
 const Subheading = tw(SubheadingBase)`mb-4 text-gray-100`;
 const Heading = tw(SectionHeading)`w-full sm:text-4xl md:text-5xl xl:text-6xl`;
@@ -36,7 +35,7 @@ const Column = styled.div`
 `;
 
 const Card = styled.div`
-  ${tw`flex flex-col items-center sm:items-start text-center sm:text-left h-full mx-4 px-2 py-8`}
+  ${tw`flex flex-col items-center sm:items-start text-center sm:text-left h-full mx-4 px-2`}
 
   .cardContent {
     ${tw`flex sm:flex-row md:flex-col`}
@@ -61,15 +60,26 @@ const Card = styled.div`
   }
 `;
 
-export default ({
-  cards = null,
-  heading = "My role in numbers",
-  subheading = "",
-  description = "Want to know more?",
-  buttonRounded = true,
-  primaryButtonUrl = "/#/portfolio",
-  primaryButtonText = "Check my portfolio!",
-}) => {
+const MiddleContainer = tw.div`flex items-center justify-center`;
+const Title = tw.div`text-black text-[32px] font-bold mb-10`;
+const LogoContainer = ({ logo, title }) => {
+  const renderContainer = () => {
+    if (logo) {
+      return (
+        <img
+          alt={title}
+          src={logo.default || logo}
+          style={{ height: "60px", backgroundSize: "cover" }}
+        />
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+  return renderContainer();
+};
+
+export default ({ cards = null, buttonRounded = true }) => {
   const buttonRoundedCss = buttonRounded && tw`rounded-full`;
   const defaultCards = [
     {
@@ -93,9 +103,11 @@ export default ({
 
   return (
     <Container>
-      <ThreeColumnContainer>
-        {subheading && <Subheading>{subheading}</Subheading>}
-        <VerticalSpacer />
+      <MiddleContainer>
+        <Title>{"Contribution in Numbers"}</Title>
+      </MiddleContainer>
+      <Carousel />
+      {/* <ThreeColumnContainer>
         {cards.map((card, i) => (
           <Column key={i}>
             <Card>
@@ -107,11 +119,13 @@ export default ({
         ))}
         <VerticalSpacer />
         {description && <Description>{description}</Description>}
-        <SmallVerticalSpacer />
-        {/*  <PrimaryButton css={buttonRoundedCss}>
+      </ThreeColumnContainer>
+      <MiddleContainer>
+        <LogoContainer logo={InforLogo} title={"title"} />
+      </MiddleContainer> */}
+      {/*  <PrimaryButton css={buttonRoundedCss}>
           <a href={primaryButtonUrl}>{primaryButtonText}</a>
         </PrimaryButton> */}
-      </ThreeColumnContainer>
     </Container>
   );
 };
