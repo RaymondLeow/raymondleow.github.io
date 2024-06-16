@@ -17,10 +17,10 @@ import InforIcon from "../../images/infor-icon.png";
 import Counter from "components/features/Counter.js";
 import ResponsiveCard from "components/features/ResponsiveCard.js";
 
-const Container = tw.div`relative bg-primary-900 -mx-8 px-8 text-gray-100`;
+const Container = tw.div`relative -mx-8 px-8 text-gray-100`;
 
 const ThreeColumnContainer = styled.div`
-  ${tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
+  ${tw`z-10 relative flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
 `;
 const Subheading = tw(SubheadingBase)`mb-4 text-gray-100`;
 const Heading = tw(SectionHeading)`w-full sm:text-4xl md:text-5xl xl:text-6xl`;
@@ -73,22 +73,19 @@ export default ({
   const buttonRoundedCss = buttonRounded && tw`rounded-full`;
   const defaultCards = [
     {
-      imageSrc: InforIcon,
-      title: "Front-end Web Development",
-      description:
-        "Building value-based components for demo solutions at Infor",
+      description: "Enterprise Applications Deployed",
+      number: 50,
+      postFix: "+",
     },
     {
-      imageSrc: SBIcon,
-      title: "Full-stack Development",
-      description:
-        "Web development of Schemabanken, a scheduling tool for the public sector",
+      description: "Companies Using My Components",
+      number: 800,
+      postFix: "+",
     },
     {
-      imageSrc: LIUIcon,
-      title: "Lab Assistance",
-      description:
-        "Grading, helping and creating Python labs for the students at Linköping University",
+      description: "Cross-Functional Team Members",
+      number: 100,
+      postFix: "+",
     },
   ];
 
@@ -98,20 +95,12 @@ export default ({
     <Container>
       <ThreeColumnContainer>
         {subheading && <Subheading>{subheading}</Subheading>}
-        <Heading>{heading}</Heading>
         <VerticalSpacer />
         {cards.map((card, i) => (
           <Column key={i}>
             <Card>
               <span className="cardContent">
-                {/* <span className="imageContainer">
-                  <img src={card.imageSrc || defaultCardImage} alt="" />
-                </span>
-                <span className="textContainer"> */}
-                {/* <span className="title">{card.title}</span>
-                  <p className="description">{card.description}</p> */}
-                <ResponsiveCard />
-                {/* </span> */}
+                <ResponsiveCard card={card} />
               </span>
             </Card>
           </Column>
@@ -119,9 +108,9 @@ export default ({
         <VerticalSpacer />
         {description && <Description>{description}</Description>}
         <SmallVerticalSpacer />
-        <PrimaryButton css={buttonRoundedCss}>
+        {/*  <PrimaryButton css={buttonRoundedCss}>
           <a href={primaryButtonUrl}>{primaryButtonText}</a>
-        </PrimaryButton>
+        </PrimaryButton> */}
       </ThreeColumnContainer>
     </Container>
   );

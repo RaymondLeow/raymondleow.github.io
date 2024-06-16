@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useSpring, useMotionTemplate, transform } from "framer-motion";
 import Counter from "./Counter";
-export default function ResponsiveCard() {
+export default function ResponsiveCard({ card }) {
   /* State */
   const [frame, setFrame] = useState({
     width: 0,
@@ -13,7 +13,7 @@ export default function ResponsiveCard() {
   /* Constants */
   const rotateValue = 15;
   const transformValue = rotateValue * 2;
-  const springValue = { stiffness: 400, damping: 30 };
+  const springValue = { stiffness: 1000, damping: 100 };
 
   /* UseSpring MotionValues */
   const rotateX = useSpring(0, springValue);
@@ -23,7 +23,7 @@ export default function ResponsiveCard() {
   const shadowX = useSpring(0, springValue);
   const shadowY = useSpring(30, springValue);
 
-  const filter = useMotionTemplate`drop-shadow(${shadowX}px ${shadowY}px 20px rgba(0, 0, 68, 0.7))`;
+  const filter = useMotionTemplate`drop-shadow(${shadowX}px ${shadowY}px 20px rgba(0, 0, 68, 0.2))`;
 
   /* Convert cursor position values */
   const convertCursorPosition = (e) => {
@@ -89,40 +89,41 @@ export default function ResponsiveCard() {
       >
         <motion.div
           style={{
-            width: 250,
-            height: 250,
-            borderRadius: 72,
+            filter,
+            width: 290,
+            height: 290,
+            borderRadius: 92,
             rotateX,
             rotateY,
             display: "flex",
             placeItems: "center",
             placeContent: "center",
-            background: "white",
+            background: "linear-gradient(180deg, #F22 0%, #86F 100%)",
           }}
         >
           <motion.div
             style={{
+              width: 250,
+              height: 250,
+              borderRadius: 72,
               x,
               y,
-              filter,
-              height: 160,
-              width: 160,
-              background: "transparent",
-              fontFamily: "sofia-pro, sans-serif",
-              fontWeight: 600,
-              fontStyle: "normal",
-              fontSize: "72px",
-              fontWeight: 700,
-              letterSpacing: "-1px",
-              lineHeight: 1.2,
-              textAlign: "center",
-              color: "black",
-              justifyContent: "center",
-              alignItems: "center",
               display: "flex",
+              placeItems: "center",
+              placeContent: "center",
+              background: "white",
+              color: "black",
             }}
           >
-            <Counter duration={10} number={100} />
+            <motion.div
+              style={{
+                x,
+                y,
+                filter,
+              }}
+            >
+              <Counter card={card} />
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
