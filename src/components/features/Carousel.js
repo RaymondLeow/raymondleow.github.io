@@ -19,7 +19,6 @@ const VerticalSpacer = tw.div`md:mt-10 w-full`;
 const Column = styled.div`
   ${tw`sm:w-full md:w-1/2 lg:w-1/3 md:max-w-xs`}
 `;
-
 const Card = styled.div`
   ${tw`flex flex-col items-center sm:items-start text-center sm:text-left h-full mx-4 px-2`}
 
