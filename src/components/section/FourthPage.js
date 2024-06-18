@@ -25,7 +25,14 @@ const Description = tw(SectionDescription)`w-full text-center text-gray-300`;
 const PrimaryAction = tw.button`rounded-full px-8 py-3 mt-10 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 font-bold shadow-md transition-all duration-300 bg-gray-300 text-gray-800 hocus:bg-gray-400 hocus:text-gray-900 focus:outline-none focus:shadow-outline`;
 const FlexContainer = tw.div`flex items-start flex-col `;
 const Footer = tw.footer`text-center h-screen flex flex-col justify-end`;
-const BottomText = tw.p`bottom-0 h-[160px] bottom-0 h-40 p-0 overflow-hidden font-plaster text-[225px] font-[900] leading-[0.9em] text-black`;
+const BottomText = tw.p`bottom-0  bottom-0 h-40 p-0 overflow-hidden font-sans text-[150px] font-[900] leading-[0.9em] text-black`;
+const TextContainer = tw.div`h-11/12 flex flex-col flex-nowrap justify-center gap-6 overflow-hidden p-0 relative items-center`;
+const TextFiller = tw.div`h-1/12`;
+const Title = tw.h2`font-sans font-[700] text-[32px]`;
+const Link = tw.a`text-[28px] font-display`;
+
+const liLink = "https://www.linkedin.com/in/raymond-leow/";
+const ghLink = "https://github.com/RaymondLeow";
 
 class FourthPage extends React.Component {
   constructor(props) {
@@ -60,12 +67,24 @@ class FourthPage extends React.Component {
   }
 
   render() {
-    const description = "Interested? Find me at:";
+    const description = "Interested? Find me here!";
     const LILink = "https://www.linkedin.com/in/raymond-leow/";
     const LIDesc = "Connect with LinkedIn!";
     return (
       <Footer>
-        <BottomText>RAYMOND</BottomText>
+        <TextFiller />
+        <TextContainer>
+          <Title>{description}</Title>
+          <Link onClick={this.sendEmail}>leow.ray@gmail.com</Link>
+          <Link href={ghLink} target="_blank">
+            Github
+          </Link>
+          <Link href={liLink} target="_blank">
+            LinkedIn
+          </Link>
+          <Link></Link>
+        </TextContainer>
+        <BottomText>RAYMOND LEOW</BottomText>
       </Footer>
     );
   }
