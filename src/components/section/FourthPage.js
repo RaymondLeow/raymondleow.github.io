@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { NavLink } from "../headers/light.js";
-
+import DotCursor from "components/features/DotCursor.js";
 import { SectionDescription } from "../misc/Typography.js";
 import BackgroundImage from "../../images/osaka-background.jpg";
 const Container = styled.div`
@@ -29,7 +29,7 @@ const BottomText = tw.p`bottom-0  bottom-0 h-40 p-0 overflow-hidden font-sans te
 const TextContainer = tw.div`h-11/12 flex flex-col flex-nowrap justify-center gap-6 overflow-hidden p-0 relative items-center`;
 const TextFiller = tw.div`h-1/12`;
 const Title = tw.h2`font-sans font-[700] text-[32px]`;
-const Link = tw.a`text-[28px] font-display`;
+const Link = tw.a`text-[28px] font-display cursor-pointer`;
 
 const liLink = "https://www.linkedin.com/in/raymond-leow/";
 const ghLink = "https://github.com/RaymondLeow";
@@ -66,12 +66,35 @@ class FourthPage extends React.Component {
     window.location.href = `mailto:${this.state.email}?subject=${this.state.subject}`;
   }
 
+  state = {
+    showDotCursor: false,
+  };
+
+  handleScroll = () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    // Check if the user is in the last section
+    this.setState({ showDotCursor: scrollY >= 7 * windowHeight });
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
   render() {
     const description = "Interested? Find me here!";
     const LILink = "https://www.linkedin.com/in/raymond-leow/";
     const LIDesc = "Connect with LinkedIn!";
+    const { showDotCursor } = this.state;
+
     return (
       <Footer>
+        {showDotCursor && <DotCursor />}
         <TextFiller />
         <TextContainer>
           <Title>{description}</Title>
