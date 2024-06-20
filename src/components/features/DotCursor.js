@@ -6,21 +6,29 @@ const DotElement = tw(
   motion.div
 )`fixed top-0 left-0 w-4 h-4 bg-black rounded-full pointer-events-none z-50 w-[24px] h-[24px] bg-primary-600`;
 
-const DotCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (event) => {
-    setMousePosition({ x: event.clientX + 20, y: event.clientY - 10 });
+class DotCursor extends React.Component {
+  state = {
+    mousePosition: { x: 0, y: 0 },
   };
 
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+  handleMouseMove = (event) => {
+    this.setState({
+      mousePosition: { x: event.clientX + 20, y: event.clientY - 10 },
+    });
+  };
 
-  return <DotElement style={{ x: mousePosition.x, y: mousePosition.y }} />;
-};
+  componentDidMount() {
+    window.addEventListener("mousemove", this.handleMouseMove);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("mousemove", this.handleMouseMove);
+  }
+
+  render() {
+    const { mousePosition } = this.state;
+    return <DotElement style={{ x: mousePosition.x, y: mousePosition.y }} />;
+  }
+}
 
 export default DotCursor;

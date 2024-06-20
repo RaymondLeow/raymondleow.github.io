@@ -70,21 +70,13 @@ class FourthPage extends React.Component {
     showDotCursor: false,
   };
 
-  handleScroll = () => {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    // Check if the user is in the last section
-    this.setState({ showDotCursor: scrollY >= 7 * windowHeight });
+  handleMouseEnter = () => {
+    this.setState({ showDotCursor: true });
   };
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
+  handleMouseLeave = () => {
+    this.setState({ showDotCursor: false });
+  };
 
   render() {
     const description = "Interested? Find me here!";
@@ -93,7 +85,10 @@ class FourthPage extends React.Component {
     const { showDotCursor } = this.state;
 
     return (
-      <Footer>
+      <Footer
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
         {showDotCursor && <DotCursor />}
         <TextFiller />
         <TextContainer>
