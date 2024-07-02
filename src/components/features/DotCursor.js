@@ -27,7 +27,12 @@ class DotCursor extends React.Component {
 
   render() {
     const { mousePosition } = this.state;
-    return <DotElement style={{ x: mousePosition.x, y: mousePosition.y }} />;
+    const { text } = this.props;
+    return (
+      <DotElement style={{ x: mousePosition.x, y: mousePosition.y }}>
+        {text}
+      </DotElement>
+    );
   }
 }
 
