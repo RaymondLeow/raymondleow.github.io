@@ -1,39 +1,60 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+  frame,
+} from "framer-motion";
 import tw from "twin.macro";
 
 const DotElement = tw(
   motion.div
-)`fixed top-0 left-0 w-4 h-4 bg-black rounded-full pointer-events-none z-50 w-[24px] h-[24px] bg-primary-600`;
+)`fixed top-0 left-0 bg-primary-600 text-white font-bold rounded-full pointer-events-none z-50 p-4 whitespace-nowrap`;
 
-class DotCursor extends React.Component {
-  state = {
-    mousePosition: { x: 0, y: 0 },
-  };
+const DotCursor = ({ text }) => {
+  const ref = useRef(null);
+  const spring = { damping: 5, stiffness: 50, restDelta: 0.001 };
+  const xPoint = useMotionValue(0);
+  const yPoint = useMotionValue(0);
+  const x = useSpring(xPoint, spring);
+  const y = useSpring(yPoint, spring);
 
-  handleMouseMove = (event) => {
-    this.setState({
-      mousePosition: { x: event.clientX + 20, y: event.clientY - 10 },
-    });
-  };
+  useEffect(() => {
+    if (!ref.current) return;
 
-  componentDidMount() {
-    window.addEventListener("mousemove", this.handleMouseMove);
-  }
+    const handlePointerMove = ({ clientX, clientY }) => {
+      /* const element = ref.current; */
+      const element = document.querySelector(".dot-element");
 
-  componentWillUnmount() {
-    window.removeEventListener("mousemove", this.handleMouseMove);
-  }
+      // Update motion values to the pointer position relative to the element
+      xPoint.set(clientX + 20 - element.offsetLeft);
+      yPoint.set(clientY - element.offsetTop - element.offsetHeight / 2);
+    };
 
-  render() {
-    const { mousePosition } = this.state;
-    const { text } = this.props;
-    return (
-      <DotElement style={{ x: mousePosition.x, y: mousePosition.y }}>
+    window.addEventListener("pointermove", handlePointerMove);
+
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, [xPoint, yPoint]);
+
+  return (
+    <AnimatePresence>
+      <DotElement
+        ref={ref}
+        className="dot-element"
+        key={text}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        style={{ x, y }}
+      >
         {text}
       </DotElement>
-    );
-  }
-}
+    </AnimatePresence>
+  );
+};
 
 export default DotCursor;

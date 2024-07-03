@@ -2,10 +2,10 @@ import React from "react";
 import tw from "twin.macro";
 import DotCursor from "components/features/DotCursor.js";
 const Footer = tw.footer`text-center h-screen flex flex-col justify-end`;
-const BottomText = tw.p`bottom-0  bottom-0 h-40 p-0 overflow-hidden font-sans text-[150px] font-[900] leading-[0.9em] text-black drop-shadow-md`;
+const BottomText = tw.p`cursor-default bottom-0 h-40 p-0 overflow-hidden font-sans text-[150px] font-[900] leading-[0.9em] text-black drop-shadow-md`;
 const TextContainer = tw.div`h-11/12 flex flex-col flex-nowrap justify-center gap-6 overflow-hidden p-0 relative items-center`;
 const TextFiller = tw.div`h-1/12`;
-const Title = tw.h2`font-sans font-[700] text-[32px]`;
+const Title = tw.h2`cursor-default font-sans font-[700] text-[32px]`;
 const Link = tw.a`text-[28px] font-display cursor-pointer`;
 
 const liLink = "https://www.linkedin.com/in/raymond-leow/";
@@ -14,6 +14,7 @@ const description = "Interested? Find me here!";
 const emailLink = "Email me!";
 const githubLink = "Check this project!";
 const linkedinLink = "Let's network!";
+const nameDescription = "That's my name!";
 
 class FourthPage extends React.Component {
   constructor(props) {
@@ -81,7 +82,12 @@ class FourthPage extends React.Component {
           </Link>
           <Link></Link>
         </TextContainer>
-        <BottomText>RAYMOND LEOW</BottomText>
+        <BottomText
+          onMouseEnter={() => this.onLinkChange(nameDescription)}
+          onMouseLeave={() => this.onLinkChange("")}
+        >
+          RAYMOND LEOW
+        </BottomText>
       </Footer>
     );
   }
