@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import tw from "twin.macro";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { LogoLink } from "./logo";
+/* import { LogoLink } from "./logo"; */
 const Container = tw(
   motion.div
 )`w-full h-[60px] fixed top-0 right-0 left-0 z-[99] inset-0 bg-white bg-size-4px bg-opacity-0 backdrop-blur-3 flex flex-col items-center justify-around px-[24px] font-bold text-[13px] tracking-[0.0200rem]`;
@@ -40,7 +40,7 @@ const Navigation = () => {
             <a href="/#/about">About</a>
           </ListItem>
           <ListItem>
-            <a href="/#contact">Contact</a>
+            <a href="/#/contact">Contact</a>
           </ListItem>
         </List>
       </ListContainer>

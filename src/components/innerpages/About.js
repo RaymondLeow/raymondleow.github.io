@@ -6,8 +6,8 @@ import { SectionHeading } from "../misc/Headings.js";
 import { SectionDescription } from "../misc/Typography.js";
 import { ContentWithVerticalPadding } from "../misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/dot-pattern.svg";
-import ReactFullpage from "@fullpage/react-fullpage";
 var _ = require("lodash");
+const Section = tw.div`h-screen`;
 const Header = tw(HeaderBase)`max-w-none`;
 const Row = tw.div`h-full flex flex-col lg:flex-row justify-between items-center px-16 max-w-screen-2xl mx-auto sm:px-8`;
 const TextColumn = tw.div`lg:pl-16 lg:mr-auto sm:mt-8 md:mt-16 lg:mt-32 lg:mr-0 max-w-lg lg:max-w-xl xl:max-w-2xl`;
@@ -579,162 +579,151 @@ class About extends React.Component {
     let images = this.state.images;
     images = Object.keys(images).map((key) => images[key]);
     return (
-      <ReactFullpage
-        navigation
-        scrollingSpeed={1000}
-        autoScrolling={false}
-        fitToSection={false}
-        render={() => {
-          return (
-            <ReactFullpage.Wrapper>
-              <div className="section">
-                <InfoContainer>
-                  <Header />
-                  <AboutContainer>
-                    <Row>
-                      <ImageColumn>
-                        <ImageContainer>
-                          <Image src={imageSrc} />
-                          {imageDecoratorBlob && <ImageDecoratorBlob />}
-                          <Nameplate>{name}</Nameplate>
-                        </ImageContainer>
-                        <Offsetbackground />
-                      </ImageColumn>
-                      <TextColumn>
-                        <Heading>{heading}</Heading>
-                        <VerticalSpacer />
-                        <Description>{description}</Description>
-                        <Description>{drawing}</Description>
-                        <Description>{cooking}</Description>
-                        <Description>{fitness}</Description>
-                      </TextColumn>
-                    </Row>
-                  </AboutContainer>
-                </InfoContainer>
-              </div>
-              <div className="section">
-                <CenterContainer>
-                  <Content>
-                    {this.state.step === 0 && (
-                      <>
-                        <Heading>Music</Heading>
-                        <VerticalSpacer />
-                        <Description>
-                          There's a handful of music genres I like, but the
-                          common denominator is the beat. Whether it's death
-                          metal or folk, I prefer a predictable rhythm.
-                        </Description>
-                        <VerticalSpacer />
+      <>
+        <Section>
+          <InfoContainer>
+            <Header />
+            <AboutContainer>
+              <Row>
+                <ImageColumn>
+                  <ImageContainer>
+                    <Image src={imageSrc} />
+                    {imageDecoratorBlob && <ImageDecoratorBlob />}
+                    <Nameplate>{name}</Nameplate>
+                  </ImageContainer>
+                  <Offsetbackground />
+                </ImageColumn>
+                <TextColumn>
+                  <Heading>{heading}</Heading>
+                  <VerticalSpacer />
+                  <Description>{description}</Description>
+                  <Description>{drawing}</Description>
+                  <Description>{cooking}</Description>
+                  <Description>{fitness}</Description>
+                </TextColumn>
+              </Row>
+            </AboutContainer>
+          </InfoContainer>
+          /
+        </Section>
+        <Section>
+          <CenterContainer>
+            <Content>
+              {this.state.step === 0 && (
+                <>
+                  <Heading>Music</Heading>
+                  <VerticalSpacer />
+                  <Description>
+                    There's a handful of music genres I like, but the common
+                    denominator is the beat. Whether it's death metal or folk, I
+                    prefer a predictable rhythm.
+                  </Description>
+                  <VerticalSpacer />
 
-                        <MultiColumnContainer>
-                          {images.map((image, i) => (
-                            <Card key={i.toString()}>
-                              <span className="cardContent">
-                                <span className="imageContainer">
-                                  <a
-                                    href={image.externalUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <Image src={image.imageSrc} />
-                                  </a>
-                                </span>
-                                <span className="textContainer">
-                                  <span className="title">{image.name}</span>
-                                </span>
-                              </span>
-                            </Card>
-                          ))}
-                        </MultiColumnContainer>
-                        <VerticalSpacer />
-                        <Description>
-                          Can't find a list for your taste buds?
-                        </Description>
-                        <SmallVerticalSpacer />
-                        <PrimaryAction onClick={this.nextStep}>
-                          Try my Music Questionnaire Adventure!
-                        </PrimaryAction>
-                      </>
-                    )}
-                    {this.state.step === 1 && (
-                      <>
-                        <CenterHeading>
-                          Raymond's Music Questionnaire Adventure
-                        </CenterHeading>
-                        <Description>
-                          So you want to know more about my music.{" "}
-                        </Description>
-                        <PrimaryAction
-                          onClick={() => {
-                            this.nextStep();
-                            this.getCurrentQuestion();
-                          }}
-                        >
-                          Let's go!
-                        </PrimaryAction>
-                      </>
-                    )}
-                    {this.state.step === 2 && (
-                      <>
-                        <CenterHeading>{this.state.curQuestion}</CenterHeading>
-                        {this.state.curAnswers.map((answer, i) => (
-                          <AnswerAction
-                            key={i.toString()}
-                            onClick={() => this.navigate(answer.value)}
+                  <MultiColumnContainer>
+                    {images.map((image, i) => (
+                      <Card key={i.toString()}>
+                        <span className="cardContent">
+                          <span className="imageContainer">
+                            <a
+                              href={image.externalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Image src={image.imageSrc} />
+                            </a>
+                          </span>
+                          <span className="textContainer">
+                            <span className="title">{image.name}</span>
+                          </span>
+                        </span>
+                      </Card>
+                    ))}
+                  </MultiColumnContainer>
+                  <VerticalSpacer />
+                  <Description>
+                    Can't find a list for your taste buds?
+                  </Description>
+                  <SmallVerticalSpacer />
+                  <PrimaryAction onClick={this.nextStep}>
+                    Try my Music Questionnaire Adventure!
+                  </PrimaryAction>
+                </>
+              )}
+              {this.state.step === 1 && (
+                <>
+                  <CenterHeading>
+                    Raymond's Music Questionnaire Adventure
+                  </CenterHeading>
+                  <Description>
+                    So you want to know more about my music.{" "}
+                  </Description>
+                  <PrimaryAction
+                    onClick={() => {
+                      this.nextStep();
+                      this.getCurrentQuestion();
+                    }}
+                  >
+                    Let's go!
+                  </PrimaryAction>
+                </>
+              )}
+              {this.state.step === 2 && (
+                <>
+                  <CenterHeading>{this.state.curQuestion}</CenterHeading>
+                  {this.state.curAnswers.map((answer, i) => (
+                    <AnswerAction
+                      key={i.toString()}
+                      onClick={() => this.navigate(answer.value)}
+                    >
+                      {this.state.curAnswers[i].text}
+                    </AnswerAction>
+                  ))}
+                </>
+              )}
+              {this.state.step === 3 && (
+                <>
+                  <MultiColumnContainer>
+                    {this.state.curAnswers.ids.map((id, i) => (
+                      <BigCard>
+                        <span className="cardContent">
+                          <span className="imageContainer">
+                            <a
+                              href={this.state.images[id].externalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Image
+                                key={id.toString()}
+                                src={this.state.images[id].imageSrc}
+                              />
+                            </a>
+                          </span>
+                          <span
+                            className="textContainer"
+                            style={{ "max-width": "256px" }}
                           >
-                            {this.state.curAnswers[i].text}
-                          </AnswerAction>
-                        ))}
-                      </>
-                    )}
-                    {this.state.step === 3 && (
-                      <>
-                        <MultiColumnContainer>
-                          {this.state.curAnswers.ids.map((id, i) => (
-                            <BigCard>
-                              <span className="cardContent">
-                                <span className="imageContainer">
-                                  <a
-                                    href={this.state.images[id].externalUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                  >
-                                    <Image
-                                      key={id.toString()}
-                                      src={this.state.images[id].imageSrc}
-                                    />
-                                  </a>
-                                </span>
-                                <span
-                                  className="textContainer"
-                                  style={{ "max-width": "256px" }}
-                                >
-                                  <span className="title">
-                                    {this.state.images[id].name}
-                                  </span>
-                                </span>
-                              </span>
-                            </BigCard>
-                          ))}
-                        </MultiColumnContainer>
-                        <VerticalSpacer />
-                        <CenterHeading>
-                          {this.state.curAnswers.title}
-                        </CenterHeading>
-                        <Description>{this.state.curAnswers.text}</Description>
-                        <VerticalSpacer />
-                        <PrimaryAction onClick={this.reset}>
-                          Redo Questionnaire!
-                        </PrimaryAction>
-                      </>
-                    )}
-                  </Content>
-                </CenterContainer>
-              </div>
-            </ReactFullpage.Wrapper>
-          );
-        }}
-      />
+                            <span className="title">
+                              {this.state.images[id].name}
+                            </span>
+                          </span>
+                        </span>
+                      </BigCard>
+                    ))}
+                  </MultiColumnContainer>
+                  <VerticalSpacer />
+                  <CenterHeading>{this.state.curAnswers.title}</CenterHeading>
+                  <Description>{this.state.curAnswers.text}</Description>
+                  <VerticalSpacer />
+                  <PrimaryAction onClick={this.reset}>
+                    Redo Questionnaire!
+                  </PrimaryAction>
+                </>
+              )}
+            </Content>
+          </CenterContainer>
+        </Section>
+      </>
     );
   }
 }
