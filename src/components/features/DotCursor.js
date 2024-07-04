@@ -4,17 +4,16 @@ import {
   useMotionValue,
   useSpring,
   AnimatePresence,
-  frame,
 } from "framer-motion";
 import tw from "twin.macro";
 
 const DotElement = tw(
   motion.div
-)`fixed top-0 left-0 bg-primary-600 text-white font-bold rounded-full pointer-events-none z-50 p-4 whitespace-nowrap`;
+)`fixed top-0 left-0 bg-primary-600 text-white font-bold rounded-full pointer-events-none z-50 p-4 whitespace-nowrap drop-shadow-md`;
 
 const DotCursor = ({ text }) => {
   const ref = useRef(null);
-  const spring = { damping: 5, stiffness: 50, restDelta: 0.001 };
+  const spring = { damping: 50, stiffness: 800, restDelta: 0.001 };
   const xPoint = useMotionValue(0);
   const yPoint = useMotionValue(0);
   const x = useSpring(xPoint, spring);
