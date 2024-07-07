@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { motion, useSpring, useMotionTemplate, transform } from "framer-motion";
 import Counter from "./Counter";
 export default function ResponsiveCard({ card }) {

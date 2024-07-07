@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import tw from "twin.macro";
 
@@ -36,7 +36,6 @@ export default function Counter({ duration = 2, card }) {
           width: 160,
           background: "transparent",
           fontFamily: "sofia-pro, sans-serif",
-          fontWeight: 600,
           fontStyle: "normal",
           fontSize: "72px",
           fontWeight: 700,
