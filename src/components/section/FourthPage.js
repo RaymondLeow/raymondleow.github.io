@@ -81,11 +81,13 @@ class FourthPage extends React.Component {
             LinkedIn
           </Link>
         </TextContainer>
-        <PopUpText
-          onMouseEnter={() => this.onLinkChange(nameDescription)}
-          onMouseLeave={() => this.onLinkChange("")}
-        >
-          <BottomText>RAYMOND LEOW</BottomText>
+        <PopUpText>
+          <BottomText
+            onMouseEnter={() => this.onLinkChange(nameDescription)}
+            onMouseLeave={() => this.onLinkChange("")}
+          >
+            RAYMOND LEOW
+          </BottomText>
         </PopUpText>
         {/* <BottomText
           onMouseEnter={() => this.onLinkChange(nameDescription)}
