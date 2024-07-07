@@ -100,7 +100,7 @@ export default function ResponsivePicture() {
             display: "flex",
             placeItems: "center",
             placeContent: "center",
-            background: "linear-gradient(180deg, #6BE 0%, #86F 100%)",
+            background: "linear-gradient(180deg, #49E 0%, #86F 100%)",
           }}
         >
           <motion.div

@@ -9,7 +9,7 @@ import tw from "twin.macro";
 
 const DotElement = tw(
   motion.div
-)`fixed top-0 left-0 bg-primary-600 text-white font-bold rounded-full pointer-events-none z-50 p-4 whitespace-nowrap drop-shadow-md`;
+)`fixed top-0 left-0 bg-primary-500 text-white font-bold rounded-full pointer-events-none z-50 p-4 whitespace-nowrap drop-shadow-md`;
 
 const DotCursor = ({ text }) => {
   const ref = useRef(null);
