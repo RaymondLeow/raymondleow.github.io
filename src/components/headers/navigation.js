@@ -1,7 +1,7 @@
 import React from "react";
 import tw from "twin.macro";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useLocation, Route } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const Container = tw(
   motion.div
 )`w-full h-[60px] fixed top-0 right-0 left-0 z-[99] inset-0 bg-white bg-size-4px bg-opacity-0 backdrop-blur-3 flex flex-col items-center justify-around px-[24px] font-bold text-[13px] tracking-[0.0200rem]`;
@@ -37,18 +37,18 @@ const Navigation = () => {
       <ListContainer>
         <List>
           {/* <LogoLink /> */}
-          <HighlightButton pathname={""}>
-            <Route path="/">Home</Route>
+          <HighlightButton pathname={"/"}>
+            <a href="/">Home</a>
           </HighlightButton>
-          {/*  <ListItem>
+          <HighlightButton pathname={"/portfolio"}>
             <a href="/#/portfolio">Portfolio</a>
-          </ListItem>
-          <ListItem>
+          </HighlightButton>
+          <HighlightButton pathname={"/about"}>
             <a href="/#/about">About</a>
-          </ListItem>
-          <ListItem>
+          </HighlightButton>
+          <HighlightButton pathname={"/contact"}>
             <a href="/#/contact">Contact</a>
-          </ListItem> */}
+          </HighlightButton>
         </List>
       </ListContainer>
     </Container>
