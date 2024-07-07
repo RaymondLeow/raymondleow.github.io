@@ -6,16 +6,8 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
 
-import logo from "../../images/logo.svg";
 import { LogoLink } from "./logo.js";
-import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
-import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
 import Navigation from "./navigation.js";
-
-const Header = tw.header`
-  flex justify-between items-center
-  max-w-screen-xl mx-auto
-`;
 
 export const NavLinks = tw.div`inline-block`;
 
@@ -85,10 +77,6 @@ export default ({
       <NavLink href="/#/about">About</NavLink>
     </NavLinks>,
   ];
-
-  const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
-  const collapseBreakpointCss =
-    collapseBreakPointCssMap[collapseBreakpointClass];
 
   const defaultLogoLink = <LogoLink />;
 
