@@ -7,7 +7,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./StartPage.js";
 import About from "./components/innerpages/About.js";
 import Portfolio from "./components/innerpages/Portfolio.js";
-/* import HeaderBase from "components/headers/light.js"; */
 import Navigation from "components/headers/navigation.js";
 const Header = tw(Navigation)`max-w-none`;
 
