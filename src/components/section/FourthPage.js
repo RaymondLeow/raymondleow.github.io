@@ -6,7 +6,7 @@ const Footer = tw.footer`overflow-hidden text-center h-screen flex flex-col just
 const BottomText = tw.p`cursor-default p-0 overflow-hidden font-sans text-[150px] font-[900] leading-[0.9em] text-black drop-shadow-md`;
 const TextContainer = tw.div`h-8/12 flex flex-col flex-nowrap justify-center gap-6 overflow-hidden p-0 relative items-center`;
 const Title = tw.h2`cursor-default font-sans font-[700] text-[32px]`;
-const Link = tw.a`text-[28px] font-display cursor-pointer`;
+const Link = tw.a`hover:text-primary-800 text-[28px] font-display cursor-pointer`;
 const PopUpText = tw(PopUp)`h-4/12`;
 
 const liLink = "https://www.linkedin.com/in/raymond-leow/";

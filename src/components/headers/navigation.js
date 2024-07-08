@@ -40,8 +40,8 @@ const Navigation = () => {
           <HighlightButton pathname={"/"}>
             <a href="/">Home</a>
           </HighlightButton>
-          <HighlightButton pathname={"/portfolio"}>
-            <a href="/#/portfolio">Portfolio</a>
+          <HighlightButton pathname={"/timeline"}>
+            <a href="/#/timeline">Timeline</a>
           </HighlightButton>
           <HighlightButton pathname={"/about"}>
             <a href="/#/about">About</a>
