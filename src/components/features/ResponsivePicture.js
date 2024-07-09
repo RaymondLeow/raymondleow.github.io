@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useSpring, useMotionTemplate, transform } from "framer-motion";
-import BackgroundImage from "../../images/profile_pic.png";
+import ProfileImage from "../../images/profile_pic.png";
+
+const preloadImage = (src) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => resolve(src);
+    img.onerror = (err) => reject(err);
+  });
+};
 
 export default function ResponsivePicture() {
   /* State */
@@ -10,6 +19,17 @@ export default function ResponsivePicture() {
     top: 0,
     left: 0,
   });
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    preloadImage(ProfileImage)
+      .then(() => setImageLoaded(true))
+      .catch((error) => {
+        console.error("Error loading image:", error);
+        setError(true);
+      });
+  }, []);
 
   /* Constants */
   const rotateValue = 15;
@@ -71,6 +91,12 @@ export default function ResponsivePicture() {
 
   return (
     <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{
+        opacity: imageLoaded ? 1 : 0,
+        y: imageLoaded ? 0 : 10,
+      }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       style={{
         width: "100vw",
         height: "100px",
@@ -108,14 +134,16 @@ export default function ResponsivePicture() {
               x,
               y,
               filter,
-              backgroundImage: `url(${BackgroundImage})`,
+              backgroundImage: `url(${ProfileImage})`,
               height: 320,
               width: 320,
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderRadius: 5,
             }}
-          ></motion.div>
+          >
+            {!imageLoaded && !error && <p>Loading...</p>}
+          </motion.div>
         </motion.div>
       </motion.div>
     </motion.div>
