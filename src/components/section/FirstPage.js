@@ -20,7 +20,8 @@ const Child = tw.span`block mr-[30px]`;
 const Section = tw.div`relative flex justify-center items-center h-screen`;
 const ParallaxSection = tw.div`absolute flex justify-center items-center flex-col`;
 const ProfilePicture = tw(ResponsivePicture)`absolute`;
-const TextFiller = tw.div`h-[200px]`;
+const TextFiller = tw.div`h-[170px]`;
+const HeightFiller = tw.div`h-[66px]`;
 const H1 = tw.h1`font-publicsans text-5xl font-medium`;
 const H2 = tw.h2`font-publicsans text-2xl font-medium text-gray-800`;
 const H3 = tw.h3`mb-1 font-publicsans text-xl text-gray-800`;
@@ -80,6 +81,7 @@ export default function FirstPage() {
         <ParallaxText baseVelocity={1}>Please Hold On</ParallaxText>
         <TextFiller />
         <H2>The site is under construction. Please hold on, phone owners!</H2>
+        <HeightFiller />
       </ParallaxSection>
       <ProfilePicture></ProfilePicture>
     </Section>
