@@ -141,9 +141,7 @@ export default function ResponsivePicture() {
               backgroundPosition: "center",
               borderRadius: 5,
             }}
-          >
-            {!imageLoaded && !error && <p>Loading...</p>}
-          </motion.div>
+          ></motion.div>
         </motion.div>
       </motion.div>
     </motion.div>
