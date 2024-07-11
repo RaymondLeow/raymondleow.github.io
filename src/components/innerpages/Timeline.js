@@ -103,7 +103,7 @@ export default () => {
     },
   ];
   const button = {
-    description: "Want the portfolio in compact form?",
+    description: "Want the timeline in compact form?",
     text: "Get my resume!",
     disclaimer: "Swedish (Oct. 2020)",
   };
@@ -113,7 +113,7 @@ export default () => {
         <Header />
         <SingleColumn>
           <HeadingInfoContainer>
-            <Heading>Portfolio</Heading>
+            <Heading>Timeline</Heading>
             <HeadingDescription>My past experiences</HeadingDescription>
           </HeadingInfoContainer>
 
