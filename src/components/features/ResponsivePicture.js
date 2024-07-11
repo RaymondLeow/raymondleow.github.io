@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useSpring, useMotionTemplate, transform } from "framer-motion";
-import ProfileImage from "../../images/profile_pic.png";
+import ProfileImage from "../../images/profile_pic4.jpg";
 
 const preloadImage = (src) => {
   return new Promise((resolve, reject) => {
@@ -20,14 +20,12 @@ export default function ResponsivePicture() {
     left: 0,
   });
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     preloadImage(ProfileImage)
       .then(() => setImageLoaded(true))
       .catch((error) => {
         console.error("Error loading image:", error);
-        setError(true);
       });
   }, []);
 
@@ -126,7 +124,7 @@ export default function ResponsivePicture() {
             display: "flex",
             placeItems: "center",
             placeContent: "center",
-            background: "linear-gradient(180deg, #49E 0%, #86F 100%)",
+            background: "linear-gradient(180deg, #49E 0%, #1A4 100%)",
           }}
         >
           <motion.div
