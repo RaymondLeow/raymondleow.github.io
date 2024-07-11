@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.692b1c6c.css",
-    "main.js": "/static/js/main.d0e32040.js",
-    "static/media/profile_pic.png": "/static/media/profile_pic.22df56073942a2f656ab.png",
+    "main.js": "/static/js/main.0afae914.js",
     "static/media/background-m3.png": "/static/media/background-m3.3fa4098115ec74e37575.png",
+    "static/media/profile_pic4.jpg": "/static/media/profile_pic4.22a44b1fcc187ca63f74.jpg",
     "static/media/liu-logo.jpg": "/static/media/liu-logo.5725214a20c0bb8f6c98.jpg",
     "static/media/profile_pic3.jpg": "/static/media/profile_pic3.05608a2e43f3443e7453.jpg",
     "static/media/sb-logo.jpg": "/static/media/sb-logo.e0b4c77ec9d3a773070e.jpg",
@@ -20,10 +20,10 @@
     "static/media/lynes-logo.svg": "/static/media/lynes-logo.1f5d83472792d8644968489ce2b40e16.svg",
     "index.html": "/index.html",
     "main.692b1c6c.css.map": "/static/css/main.692b1c6c.css.map",
-    "main.d0e32040.js.map": "/static/js/main.d0e32040.js.map"
+    "main.0afae914.js.map": "/static/js/main.0afae914.js.map"
   },
   "entrypoints": [
     "static/css/main.692b1c6c.css",
-    "static/js/main.d0e32040.js"
+    "static/js/main.0afae914.js"
   ]
 }
