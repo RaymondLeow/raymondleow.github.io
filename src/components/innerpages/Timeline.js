@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import tw from "twin.macro";
 import { SectionHeading as HeadingTitle } from "../misc/Headings.js";
 import HeaderBase from "../headers/light.js";
@@ -102,6 +102,11 @@ export default () => {
       position: "right",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   const button = {
     description: "Want the timeline in compact form?",
     text: "Get my resume!",

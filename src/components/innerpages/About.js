@@ -102,6 +102,7 @@ class About extends React.Component {
       spotifyData: [],
       images: {},
     };
+
     this.reset = this.reset.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.getCurrentQuestion = this.getCurrentQuestion.bind(this);
@@ -513,6 +514,7 @@ class About extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo({ top: 0 });
     fetch(
       "https://8qqhkj14af.execute-api.eu-central-1.amazonaws.com/dev/spotify"
     )
