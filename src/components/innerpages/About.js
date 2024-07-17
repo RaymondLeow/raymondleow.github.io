@@ -642,14 +642,14 @@ class About extends React.Component {
                       </Card>
                     ))}
                   </MultiColumnContainer>
-                  <VerticalSpacer />
+                  {/* <VerticalSpacer />
                   <Description>
                     Can't find a list for your taste buds?
                   </Description>
                   <SmallVerticalSpacer />
                   <PrimaryAction onClick={this.nextStep}>
                     Try my Music Questionnaire Adventure!
-                  </PrimaryAction>
+                  </PrimaryAction> */}
                 </>
               )}
               {this.state.step === 1 && (
