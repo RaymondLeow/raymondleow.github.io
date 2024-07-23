@@ -77,10 +77,12 @@ export default function FirstPage() {
         </H1>
         <H3>Fullstack Engineer</H3>
         <TextFiller />
-        <ParallaxText baseVelocity={-1}>Under Construction</ParallaxText>
+        <ParallaxText baseVelocity={-1}>Under Renovation</ParallaxText>
         <ParallaxText baseVelocity={1}>Please Hold On</ParallaxText>
         <TextFiller />
-        <H2>The site is under construction. Please hold on, phone owners!</H2>
+        <H2>
+          The site is under complete renovation. Please hold on, phone owners!
+        </H2>
         <HeightFiller />
       </ParallaxSection>
       <ProfilePicture></ProfilePicture>
