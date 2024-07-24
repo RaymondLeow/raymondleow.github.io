@@ -98,10 +98,10 @@ class About extends React.Component {
       " There's a handful of things I quite enjoy: drawing, cooking, working out and karaoke."; */
     const description =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    const drawing = "I love drawing, it goes down in the family.";
+    /* const drawing = "I love drawing, it goes down in the family.";
     const cooking = "I love cooking, based on my dad.";
     const fitness =
-      "I love working out, as programming wears down on the neck.";
+      "I love working out, as programming wears down on the neck."; */
     const imageSrc = require("../../images/profile_pic3.jpg");
     const imageDecoratorBlob = true;
     let images = this.state.images;

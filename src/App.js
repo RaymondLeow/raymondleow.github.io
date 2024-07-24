@@ -8,18 +8,22 @@ import StartPage from "./StartPage.js";
 import About from "./components/innerpages/About.js";
 import Timeline from "./components/innerpages/Timeline.js";
 import Navigation from "components/headers/navigation.js";
+
 const Header = tw(Navigation)`max-w-none`;
+const Container = tw.div`w-fit lg:w-full`;
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/timeline" element={<Timeline />} />
-        <Route path="/contact" element={<StartPage />} />
-      </Routes>
+      <Container>
+        <Header />
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/contact" element={<StartPage />} />
+        </Routes>
+      </Container>
     </>
   );
 };

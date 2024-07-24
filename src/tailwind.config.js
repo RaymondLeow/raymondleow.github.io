@@ -524,6 +524,7 @@ module.exports = {
       full: "100%",
       screen: "100vw",
       min: "min-content",
+      fit: "fit-content",
     }),
     zIndex: {
       auto: "auto",

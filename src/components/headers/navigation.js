@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "react-router-dom";
 const Container = tw(
   motion.div
-)`w-full h-[60px] fixed top-0 right-0 left-0 z-[99] inset-0 bg-white bg-size-4px bg-opacity-0 backdrop-blur-3 flex flex-col items-center justify-around px-[24px] font-bold text-[13px] tracking-[0.0200rem]`;
+)`w-screen lg:w-full h-[60px] fixed top-0 right-0 left-0 z-[99] inset-0 bg-white bg-size-4px bg-opacity-0 backdrop-blur-3 flex flex-col items-center justify-around px-[24px] font-bold text-[13px] tracking-[0.0200rem]`;
 const List = tw.ul`list-none flex items-center`;
 const ListItem = tw.li`my-[12px] hover:scale-110 mx-4 hocus:text-[rgba(0,0,0,1)] tracking-wide transition duration-300
 border-b-2 border-transparent`;
