@@ -525,6 +525,7 @@ module.exports = {
       screen: "100vw",
       min: "min-content",
       fit: "fit-content",
+      "calc-full-minus-30": "calc(100vw - 30px)",
     }),
     zIndex: {
       auto: "auto",

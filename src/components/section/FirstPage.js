@@ -22,9 +22,9 @@ const ParallaxSection = tw.div`absolute flex justify-center items-center flex-co
 const ProfilePicture = tw(ResponsivePicture)`absolute`;
 const TextFiller = tw.div`h-[170px]`;
 const HeightFiller = tw.div`h-[66px]`;
-const H1 = tw.h1`font-publicsans text-5xl font-medium`;
-const H2 = tw.h2`font-publicsans text-2xl font-medium text-gray-800`;
-const H3 = tw.h3`mb-1 font-publicsans text-xl text-gray-800`;
+const H1 = tw.h1`font-publicsans text-3xl md:text-5xl font-medium `;
+const H2 = tw.h2`font-publicsans text-xl md:text-2xl font-medium text-gray-800 text-center w-calc-full-minus-30`;
+const H3 = tw.h3`mb-1 font-publicsans text-lg md:text-xl text-gray-800`;
 const Italic = tw.span`font-bold`;
 
 function ParallaxText({ children, baseVelocity = 100 }) {
