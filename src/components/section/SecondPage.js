@@ -54,15 +54,24 @@ function Image({ location }) {
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
 
+  //<TextContainer style={{ y, left: "calc(50% + 200px)" }}>
   return (
-    <Section style={{ scrollSnapAlign: "center" }}>
+    //<Section style={{ scrollSnapAlign: "center" }}>
+    <Section>
       <OuterImageBorder>
         <ImageBorder width="600" ref={ref}>
           <ImageContainer src={background} />
           <CompanyContainer logo={logo} title={title} />
         </ImageBorder>
       </OuterImageBorder>
-      <TextContainer style={{ y, left: "calc(50% + 200px)" }}>
+      <TextContainer
+        initial={{ y }}
+        animate={{ y }}
+        style={{
+          left: "calc(50% + 200px)", // Applies only on `md` screens and larger
+        }}
+        className="md:left-[calc(50%_+_200px)]"
+      >
         <div>
           <H2>{`${title}`}</H2>
         </div>
