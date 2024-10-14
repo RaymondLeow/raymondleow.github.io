@@ -5,7 +5,7 @@ import FourthPage from "./components/section/FourthPage";
 import React, { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import tw from "twin.macro";
-const Section = tw.div`overflow-x-visible lg:overflow-x-hidden h-screen w-screen`;
+const Section = tw.div`overflow-x-visible lg:overflow-x-hidden h-screen`;
 
 const StartPage = () => {
   const bottomRef = useRef(null);

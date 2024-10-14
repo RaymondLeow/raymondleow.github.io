@@ -7,7 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { PrimaryButton as PrimaryButtonBase } from "../misc/Buttons.js";
 import Tilter from "../features/Tilter.js";
 
-import CV from "../../documents/CV.pdf";
+import CV from "../../documents/Resume__Raymond_Leow.pdf";
 
 const Container = tw.div`relative bg-gray-300 `;
 
@@ -110,7 +110,7 @@ export default () => {
   const button = {
     description: "Want the timeline in compact form?",
     text: "Get my resume!",
-    disclaimer: "Swedish (Oct. 2020)",
+    disclaimer: "English (Oct. 2024)",
   };
   return (
     <Container>

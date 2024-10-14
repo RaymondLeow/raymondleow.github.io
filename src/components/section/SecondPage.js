@@ -57,7 +57,11 @@ function Image({ location }) {
   //<TextContainer style={{ y, left: "calc(50% + 200px)" }}>
   return (
     //<Section style={{ scrollSnapAlign: "center" }}>
-    <Section>
+    <Section
+      style={{
+        scrollSnapAlign: window.innerWidth >= 768 ? "center" : "none", // Apply scroll-snap-align only on md screens and larger
+      }}
+    >
       <OuterImageBorder>
         <ImageBorder width="600" ref={ref}>
           <ImageContainer src={background} />
@@ -65,10 +69,9 @@ function Image({ location }) {
         </ImageBorder>
       </OuterImageBorder>
       <TextContainer
-        initial={{ y }}
-        animate={{ y }}
         style={{
-          left: "calc(50% + 200px)", // Applies only on `md` screens and larger
+          y: window.innerWidth >= 768 ? y : "auto",
+          left: "calc(50% + 200px)",
         }}
         className="md:left-[calc(50%_+_200px)]"
       >

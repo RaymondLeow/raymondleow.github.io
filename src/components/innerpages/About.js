@@ -93,16 +93,13 @@ class About extends React.Component {
   render() {
     const heading = "About Raymond";
     const name = "Raymond Leow";
-    /* const description =
-      "On this page, I'll share about myself and what I love." +
-      " There's a handful of things I quite enjoy: drawing, cooking, working out and karaoke."; */
     const description =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    /* const drawing = "I love drawing, it goes down in the family.";
-    const cooking = "I love cooking, based on my dad.";
-    const fitness =
-      "I love working out, as programming wears down on the neck."; */
-    const imageSrc = require("../../images/profile_pic3.jpg");
+      "Hi, I’m Raymond, a full-stack developer with 6 years of experience specializing in React, Angular, and TypeScript. I thrive on creating secure and scalable applications, focusing on performance optimization and user-centric design.";
+    const profession =
+      "Currently, I work as a Demo Services Engineer at Infor, where I collaborate with cross-functional teams to develop impactful web applications. My passion for innovation has led me to explore emerging technologies like Leap Motion and Apple Vision Pro, blending creativity and technology to build immersive experiences.";
+    const drawing =
+      "In addition to my technical work, I love to draw high fantasy art and delve into interactive technologies on my Wacom pad. This creative outlet enhances my problem-solving skills and fuels my passion for development. I'm always eager to take on new challenges and contribute to projects that make a meaningful impact.";
+    const imageSrc = require("../../images/profile_pic2.jpg");
     const imageDecoratorBlob = true;
     let images = this.state.images;
     images = Object.keys(images).map((key) => images[key]);
@@ -125,9 +122,8 @@ class About extends React.Component {
                   <Heading>{heading}</Heading>
                   <VerticalSpacer />
                   <Description>{description}</Description>
-                  {/* <Description>{drawing}</Description>
-                  <Description>{cooking}</Description>
-                  <Description>{fitness}</Description> */}
+                  <Description>{profession}</Description>
+                  <Description>{drawing}</Description>
                 </TextColumn>
               </Row>
             </AboutContainer>

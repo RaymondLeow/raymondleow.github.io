@@ -70,7 +70,7 @@ class FourthPage extends React.Component {
             href={ghLink}
             target="_blank"
           >
-            Github
+            GitHub
           </Link>
           <Link
             onMouseEnter={() => this.onLinkChange(linkedinLink)}
