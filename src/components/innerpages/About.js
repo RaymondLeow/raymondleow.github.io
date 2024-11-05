@@ -128,7 +128,6 @@ class About extends React.Component {
               </Row>
             </AboutContainer>
           </InfoContainer>
-          /
         </Section>
         <Section>
           <CenterContainer>

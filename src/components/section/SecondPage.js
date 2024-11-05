@@ -6,7 +6,7 @@ function useParallax(value, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
 const LiuBackground = require("../../images/liu-background.jpg");
-const InforBackground = require("../../images/background-m3.png");
+// const InforBackground = require("../../images/background-m3.png");
 const EuroneticsBackground = require("../../images/background-schemabanken.png");
 const LynesBackground = require("../../images/background-lynes-1.webp");
 const LiuBackground2 = require("../../images/liu-background-2.jpg");
@@ -49,7 +49,7 @@ const H2 = tw(
 const MainContainer = tw.div``;
 
 function Image({ location }) {
-  const { background, title, text, logo } = location;
+  const { background, title, text, logo, videoId } = location;
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 300);
@@ -64,7 +64,8 @@ function Image({ location }) {
     >
       <OuterImageBorder>
         <ImageBorder width="600" ref={ref}>
-          <ImageContainer src={background} />
+          {videoId && <YouTubeEmbed videoId={videoId} />}
+          {!videoId && <ImageContainer src={background} />}
           <CompanyContainer logo={logo} title={title} />
         </ImageBorder>
       </OuterImageBorder>
@@ -93,11 +94,13 @@ export default function SecondPage() {
   });
   const locations = [
     {
-      title: "Fast and Efficient Development",
-      text: `As a Demo Services Engineer at Infor, my focus lies in creating cutting-edge front-end prototypes that demonstrate our agility in meeting customer requirements. 
-        Whether you envision a next-generation warehouse management system or a dynamic, 
-        interactive Gantt chart for your website, I am eager to transform your ideas into reality.`,
-      background: InforBackground,
+      title: "AI-Driven Descriptions Widget",
+      text: `I created a widget using generative AI to generate multilingual descriptions for around 800,000 items. 
+        What would’ve taken about 7.6 years to do manually now takes just 6 months, cutting down the workload by 95% and saving GMM Pfaudler 1-2 million euros. 
+        Everything demonstrated in the video — from design to deployment — is done by me.
+        It was a big project, but seeing how much time and effort it saves makes it worth every bit.`,
+      // background: InforBackground,
+      videoId: "EK9okHOF8Jk",
       logo: InforLogo,
       id: 1,
     },
@@ -149,3 +152,19 @@ export default function SecondPage() {
     </MainContainer>
   );
 }
+
+const YouTubeEmbed = ({ videoId }) => {
+  return (
+    <div>
+      <iframe
+        width="600"
+        height="400"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
